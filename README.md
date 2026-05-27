@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # BugBounty — AI-Powered Bug Bounty Platform
 
 Full-stack security challenge platform with Ruby on Rails API, React frontend, AI-generated challenges, real-time multiplayer rooms, and blockchain NFT badges.
@@ -163,3 +164,6 @@ See `backend/.env.example` and `frontend/.env.example` for full list.
 ## License
 
 MIT
+=======
+# Bug-bounty-system
+>>>>>>> cda0c3872540329f61cd3424c280e44fa626f5fa
