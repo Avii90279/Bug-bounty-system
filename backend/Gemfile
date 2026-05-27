@@ -1,0 +1,33 @@
+source "https://rubygems.org"
+
+ruby "~> 3.2.0"
+
+gem "rails", "~> 7.1.0"
+gem "pg", "~> 1.5"
+gem "puma", "~> 6.4"
+gem "bootsnap", require: false
+gem "rack-cors"
+gem "bcrypt", "~> 3.1"
+gem "jwt", "~> 2.8"
+gem "omniauth", "~> 2.1"
+gem "omniauth-google-oauth2", "~> 1.1"
+gem "omniauth-rails_csrf_protection"
+gem "redis", "~> 5.0"
+gem "sidekiq", "~> 7.2"
+gem "sidekiq-cron"
+gem "dotenv-rails", groups: [:development, :test]
+gem "httparty"
+gem "faraday"
+gem "eth", "~> 0.5"
+gem "kaminari"
+
+group :development, :test do
+  gem "debug"
+  gem "rspec-rails"
+  gem "factory_bot_rails"
+  gem "faker"
+end
+
+group :development do
+  gem "annotate"
+end

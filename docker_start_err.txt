@@ -1,0 +1,22 @@
+ Image pr2-sidekiq Building 
+ Image pr2-sandbox Building 
+ Image pr2-frontend Building 
+ Image pr2-api Building 
+Dockerfile:8
+
+--------------------
+
+   6 |     
+
+   7 |     COPY Gemfile Gemfile.lock* ./
+
+   8 | >>> RUN bundle install
+
+   9 |     
+
+  10 |     COPY . .
+
+--------------------
+
+target api: failed to solve: process "/bin/sh -c bundle install" did not complete successfully: exit code: 5
+

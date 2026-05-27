@@ -1,0 +1,10 @@
+NAMES                  STATUS                        PORTS
+pr2-sidekiq-1          Created                       
+pr2-frontend-1         Created                       
+pr2-api-1              Created                       
+pr2-postgres-1         Created                       
+pr2-redis-1            Created                       
+pr2-sandbox-1          Created                       
+mangement-backend-1    Exited (255) 45 minutes ago   0.0.0.0:3001->3001/tcp
+mangement-postgres-1   Exited (255) 45 minutes ago   0.0.0.0:5432->5432/tcp
+mangement-redis-1      Exited (255) 45 minutes ago   0.0.0.0:6379->6379/tcp

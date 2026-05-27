@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+vendor/bundle/
+
+# Environment
+.env
+.env.local
+backend/.env
+frontend/.env
+
+# Build
+frontend/dist/
+backend/tmp/
+backend/log/
+backend/storage/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Logs
+*.log
+
+# Credentials
+backend/config/master.key

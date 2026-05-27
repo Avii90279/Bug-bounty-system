@@ -1,0 +1,100 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: bugbounty
+      POSTGRES_PASSWORD: bugbounty_secret
+      POSTGRES_DB: bugbounty_development
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U bugbounty"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  api:
+    build: ./backend
+    command: bash -c "bundle install && bundle exec rails db:prepare db:seed && bundle exec puma -C config/puma.rb"
+    volumes:
+      - ./backend:/app
+    ports:
+      - "3000:3000"
+    environment:
+      RAILS_ENV: development
+      DATABASE_HOST: postgres
+      DATABASE_USERNAME: bugbounty
+      DATABASE_PASSWORD: bugbounty_secret
+      DATABASE_NAME: bugbounty_development
+      REDIS_URL: redis://redis:6379/0
+      JWT_SECRET: dev_jwt_secret_change_in_production
+      CORS_ORIGINS: http://localhost:5173,http://localhost:8081
+      SANDBOX_URL: http://sandbox:8080
+      SANDBOX_TOKEN: dev-token
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID:-}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  sidekiq:
+    build: ./backend
+    command: bash -c "bundle install && bundle exec sidekiq -C config/sidekiq.yml"
+    volumes:
+      - ./backend:/app
+    environment:
+      RAILS_ENV: development
+      DATABASE_HOST: postgres
+      DATABASE_USERNAME: bugbounty
+      DATABASE_PASSWORD: bugbounty_secret
+      DATABASE_NAME: bugbounty_development
+      REDIS_URL: redis://redis:6379/0
+      JWT_SECRET: dev_jwt_secret_change_in_production
+      SANDBOX_URL: http://sandbox:8080
+      SANDBOX_TOKEN: dev-token
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+    depends_on:
+      - api
+      - redis
+
+  sandbox:
+    build: ./sandbox
+    ports:
+      - "8080:8080"
+    environment:
+      SANDBOX_TOKEN: dev-token
+      WORK_DIR: /tmp/sandbox
+    security_opt:
+      - no-new-privileges:true
+    read_only: false
+    tmpfs:
+      - /tmp/sandbox:size=100M
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_API_URL: http://localhost:3000/api/v1
+        VITE_CABLE_URL: ws://localhost:3000/cable
+        VITE_GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID:-}
+    ports:
+      - "8081:80"
+    depends_on:
+      - api
+
+volumes:
+  postgres_data:

@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: <%= ENV.fetch("DATABASE_HOST", "localhost") %>
+  username: <%= ENV.fetch("DATABASE_USERNAME", "bugbounty") %>
+  password: <%= ENV.fetch("DATABASE_PASSWORD", "bugbounty_secret") %>
+
+development:
+  <<: *default
+  database: bugbounty_development
+
+test:
+  <<: *default
+  database: bugbounty_test
+
+production:
+  <<: *default
+  database: <%= ENV.fetch("DATABASE_NAME", "bugbounty_production") %>
+  url: <%= ENV["DATABASE_URL"] %>

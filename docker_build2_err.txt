@@ -1,0 +1,4 @@
+ Image pr2-api Building 
+ Image pr2-sidekiq Building 
+ Image pr2-api Built 
+ Image pr2-sidekiq Built 

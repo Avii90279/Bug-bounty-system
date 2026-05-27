@@ -1,0 +1,497 @@
+#1 [internal] load local bake definitions
+#1 reading from stdin 2.06kB done
+#1 DONE 0.0s
+
+#2 [api internal] load build definition from Dockerfile
+#2 transferring dockerfile: 360B 0.0s done
+#2 DONE 0.0s
+
+#3 [sandbox internal] load build definition from Dockerfile
+#3 transferring dockerfile: 258B 0.0s done
+#3 DONE 0.1s
+
+#4 [frontend internal] load build definition from Dockerfile
+#4 transferring dockerfile: 568B 0.0s done
+#4 DONE 0.1s
+
+#5 [frontend internal] load metadata for docker.io/library/node:20-alpine
+#5 DONE 1.6s
+
+#6 [api internal] load metadata for docker.io/library/ruby:3.2-slim
+#6 DONE 1.7s
+
+#7 [frontend internal] load metadata for docker.io/library/nginx:alpine
+#7 DONE 1.6s
+
+#8 [sandbox internal] load .dockerignore
+#8 transferring context: 2B done
+#8 DONE 0.0s
+
+#9 [api internal] load .dockerignore
+#9 transferring context: 2B done
+#9 DONE 0.0s
+
+#10 [frontend internal] load .dockerignore
+#10 transferring context: 2B done
+#10 DONE 0.1s
+
+#11 [api internal] load build context
+#11 transferring context: 4.68kB 0.0s done
+#11 DONE 0.1s
+
+#12 [sandbox internal] load build context
+#12 transferring context: 93B done
+#12 DONE 0.0s
+
+#13 [sandbox 1/6] FROM docker.io/library/node:20-alpine@sha256:fb4cd12c85ee03686f6af5362a0b0d56d50c58a04632e6c0fb8363f609372293
+#13 resolve docker.io/library/node:20-alpine@sha256:fb4cd12c85ee03686f6af5362a0b0d56d50c58a04632e6c0fb8363f609372293 0.1s done
+#13 DONE 0.1s
+
+#14 [frontend internal] load build context
+#14 transferring context: 1.52kB 0.0s done
+#14 DONE 0.1s
+
+#15 [api 1/6] FROM docker.io/library/ruby:3.2-slim@sha256:84184c9e2c368885a1d0c93ad1953c33d81081058d274b87b4aa6f3e209e5d16
+#15 resolve docker.io/library/ruby:3.2-slim@sha256:84184c9e2c368885a1d0c93ad1953c33d81081058d274b87b4aa6f3e209e5d16 0.1s done
+#15 DONE 0.1s
+
+#16 [sandbox 2/6] RUN apk add --no-cache python3 py3-pip ruby go gcc musl-dev
+#16 CACHED
+
+#17 [sandbox 5/6] RUN npm install --production
+#17 CACHED
+
+#18 [sandbox 3/6] WORKDIR /app
+#18 CACHED
+
+#19 [sandbox 4/6] COPY package.json ./
+#19 CACHED
+
+#20 [sandbox 6/6] COPY . .
+#20 CACHED
+
+#21 [frontend stage-1 1/3] FROM docker.io/library/nginx:alpine@sha256:8b1e78743a03dbb2c95171cc58639fef29abc8816598e27fb910ed2e621e589a
+#21 resolve docker.io/library/nginx:alpine@sha256:8b1e78743a03dbb2c95171cc58639fef29abc8816598e27fb910ed2e621e589a 0.1s done
+#21 DONE 0.1s
+
+#22 [sidekiq 2/6] RUN apt-get update -qq && apt-get install -y build-essential libpq-dev curl autoconf automake libtool pkg-config && rm -rf /var/lib/apt/lists/*
+#22 CACHED
+
+#23 [sidekiq 3/6] WORKDIR /app
+#23 CACHED
+
+#24 [sandbox] exporting to image
+#24 exporting layers
+#24 ...
+
+#22 [api 2/6] RUN apt-get update -qq && apt-get install -y build-essential libpq-dev curl autoconf automake libtool pkg-config && rm -rf /var/lib/apt/lists/*
+#22 CACHED
+
+#23 [api 3/6] WORKDIR /app
+#23 CACHED
+
+#25 [frontend build 2/6] WORKDIR /app
+#25 CACHED
+
+#26 [frontend stage-1 2/3] COPY --from=build /app/dist /usr/share/nginx/html
+#26 CACHED
+
+#27 [frontend build 4/6] RUN npm install
+#27 CACHED
+
+#28 [frontend build 6/6] RUN npm run build
+#28 CACHED
+
+#29 [frontend build 5/6] COPY . .
+#29 CACHED
+
+#30 [frontend build 3/6] COPY package.json package-lock.json* ./
+#30 CACHED
+
+#31 [api 4/6] COPY Gemfile Gemfile.lock* ./
+#31 CACHED
+
+#32 [frontend stage-1 3/3] COPY nginx.conf /etc/nginx/conf.d/default.conf
+#32 CACHED
+
+#24 [sandbox] exporting to image
+#24 exporting layers done
+#24 exporting manifest sha256:9c7cf464ceeab6c4fa49d08849fe4c6475a85df33bcf5f145acd5002423deef1 0.0s done
+#24 exporting config sha256:7e8779c5b82e268a9d7e52769ac073230a7a8c3358de9364cd7bbff1757a910c 0.0s done
+#24 exporting attestation manifest sha256:c5ab7ed31816e274c94ccc2827923bdeb8b5a70edb869f8f91782c5a2e4233b4
+#24 exporting attestation manifest sha256:c5ab7ed31816e274c94ccc2827923bdeb8b5a70edb869f8f91782c5a2e4233b4 0.1s done
+#24 exporting manifest list sha256:41a2af93a7003f6d71827f84ff67496c6018076a499858612104159b930b88fb
+#24 exporting manifest list sha256:41a2af93a7003f6d71827f84ff67496c6018076a499858612104159b930b88fb 0.1s done
+#24 naming to docker.io/library/pr2-sandbox:latest 0.0s done
+#24 unpacking to docker.io/library/pr2-sandbox:latest 0.0s done
+#24 DONE 0.4s
+
+#33 [frontend] exporting to image
+#33 exporting layers done
+#33 exporting manifest sha256:505b58c7cd787f874037844eb17ab4428ec87ee401e4ff5cccb3eafdb9fcafdb 0.0s done
+#33 exporting config sha256:7911a596c4dff252e53c566f636b8416aeb252ccc50825e79f6bd08af243bfe9 0.0s done
+#33 exporting attestation manifest sha256:3504b47010454406338fddcbf60732b825bce3da83a01654e7d75f711594b21a 0.1s done
+#33 exporting manifest list sha256:34ef55fdfc73db50c9f97fb18d80afdd3806450e1803ca2094b0f9236e17e4fe 0.0s done
+#33 naming to docker.io/library/pr2-frontend:latest done
+#33 unpacking to docker.io/library/pr2-frontend:latest 0.0s done
+#33 DONE 0.4s
+
+#34 [sidekiq 5/6] RUN bundle install
+#34 ...
+
+#35 [sandbox] resolving provenance for metadata file
+#35 DONE 0.0s
+
+#36 [frontend] resolving provenance for metadata file
+#36 DONE 0.0s
+
+#34 [sidekiq 5/6] RUN bundle install
+#34 8.288 Fetching gem metadata from https://rubygems.org/...........
+#34 14.46 Resolving dependencies...
+#34 19.90 Fetching rake 13.4.2
+#34 20.12 Installing rake 13.4.2
+#34 20.17 Fetching base64 0.3.0
+#34 20.19 Fetching benchmark 0.5.0
+#34 20.19 Fetching bigdecimal 3.3.1
+#34 20.19 Fetching concurrent-ruby 1.3.6
+#34 20.19 Fetching drb 2.2.3
+#34 20.19 Fetching securerandom 0.4.1
+#34 20.19 Fetching cgi 0.5.1
+#34 20.19 Fetching erubi 1.13.1
+#34 20.19 Fetching rack 3.2.6
+#34 20.19 Fetching connection_pool 3.0.2
+#34 20.19 Fetching logger 1.7.0
+#34 20.21 Fetching prism 1.9.0
+#34 20.21 Fetching mutex_m 0.3.0
+#34 20.21 Fetching builder 3.3.0
+#34 20.21 Fetching racc 1.8.1
+#34 20.21 Fetching crass 1.0.6
+#34 20.51 Installing base64 0.3.0
+#34 20.51 Installing connection_pool 3.0.2
+#34 20.51 Installing logger 1.7.0
+#34 20.52 Installing cgi 0.5.1 with native extensions
+#34 20.56 Fetching nio4r 2.7.5
+#34 20.59 Installing mutex_m 0.3.0
+#34 20.61 Fetching websocket-extensions 0.1.5
+#34 20.64 Installing securerandom 0.4.1
+#34 20.65 Fetching zeitwerk 2.8.2
+#34 20.70 Fetching timeout 0.6.1
+#34 20.70 Fetching marcel 1.2.1
+#34 20.87 Installing erubi 1.13.1
+#34 20.90 Fetching mini_mime 1.1.5
+#34 21.05 Installing drb 2.2.3
+#34 21.07 Fetching date 3.5.1
+#34 21.12 Installing rack 3.2.6
+#34 21.19 Installing builder 3.3.0
+#34 21.20 Installing benchmark 0.5.0
+#34 21.21 Installing crass 1.0.6
+#34 21.35 Installing websocket-extensions 0.1.5
+#34 21.35 Installing timeout 0.6.1
+#34 21.42 Installing racc 1.8.1 with native extensions
+#34 21.46 Fetching version_gem 1.1.9
+#34 21.52 Fetching bcrypt 3.1.22
+#34 21.55 Fetching ecdsa 1.2.0
+#34 21.55 Installing bigdecimal 3.3.1 with native extensions
+#34 21.60 Fetching msgpack 1.8.0
+#34 21.64 Installing zeitwerk 2.8.2
+#34 21.66 Installing marcel 1.2.1
+#34 21.71 Installing mini_mime 1.1.5
+#34 21.73 Fetching unicode 0.4.4.5
+#34 21.77 Installing date 3.5.1 with native extensions
+#34 21.87 Installing nio4r 2.7.5 with native extensions
+#34 21.91 Installing ecdsa 1.2.0
+#34 21.92 Installing bcrypt 3.1.22 with native extensions
+#34 21.93 Installing version_gem 1.1.9
+#34 21.94 Installing msgpack 1.8.0 with native extensions
+#34 21.94 Fetching csv 3.3.5
+#34 22.03 Fetching prettyprint 0.2.0
+#34 22.07 Fetching erb 6.0.4
+#34 22.17 Installing concurrent-ruby 1.3.6
+#34 22.19 Installing prettyprint 0.2.0
+#34 22.24 Installing unicode 0.4.4.5 with native extensions
+#34 22.27 Installing csv 3.3.5
+#34 22.28 Installing erb 6.0.4 with native extensions
+#34 22.31 Fetching stringio 3.2.0
+#34 22.47 Fetching tsort 0.2.0
+#34 22.53 Installing stringio 3.2.0 with native extensions
+#34 22.55 Fetching io-console 0.8.2
+#34 22.61 Installing tsort 0.2.0
+#34 22.62 Fetching diff-lcs 1.6.2
+#34 22.82 Fetching dotenv 3.2.0
+#34 22.95 Fetching thor 1.5.0
+#34 22.99 Installing io-console 0.8.2 with native extensions
+#34 23.00 Installing diff-lcs 1.6.2
+#34 23.11 Installing dotenv 3.2.0
+#34 23.18 Installing prism 1.9.0 with native extensions
+#34 23.29 Installing thor 1.5.0
+#34 23.43 Fetching forwardable 1.4.0
+#34 23.55 Fetching http-2 1.1.3
+#34 23.61 Installing forwardable 1.4.0
+#34 23.68 Fetching keccak 1.3.3
+#34 23.82 Installing http-2 1.1.3
+#34 23.89 Fetching konstructor 1.0.2
+#34 23.97 Installing keccak 1.3.3 with native extensions
+#34 24.18 Installing konstructor 1.0.2
+#34 24.32 Fetching openssl 3.3.3
+#34 24.33 Fetching mini_portile2 2.8.9
+#34 24.57 Fetching pkg-config 1.6.5
+#34 24.65 Installing mini_portile2 2.8.9
+#34 24.70 Fetching rubyzip 2.4.1
+#34 24.78 Installing pkg-config 1.6.5
+#34 24.83 Fetching ffi 1.17.4 (x86_64-linux-gnu)
+#34 24.98 Installing openssl 3.3.3 with native extensions
+#34 24.99 Fetching uri 1.1.1
+#34 25.16 Installing rubyzip 2.4.1
+#34 25.73 Fetching json 2.19.5
+#34 25.86 Fetching raabro 1.4.0
+#34 25.92 Fetching kaminari-core 1.2.2
+#34 25.93 Installing uri 1.1.1
+#34 26.11 Installing raabro 1.4.0
+#34 26.12 Installing kaminari-core 1.2.2
+#34 26.14 Installing json 2.19.5 with native extensions
+#34 26.20 Fetching pg 1.6.3 (x86_64-linux)
+#34 26.26 Fetching rspec-support 3.13.7
+#34 26.31 Fetching jwt 2.10.3
+#34 26.40 Installing ffi 1.17.4 (x86_64-linux-gnu)
+#34 26.60 Installing rspec-support 3.13.7
+#34 26.63 Fetching redis-client 0.29.0
+#34 26.73 Installing jwt 2.10.3
+#34 26.97 Fetching hashie 5.1.0
+#34 27.09 Installing redis-client 0.29.0
+#34 27.20 Fetching websocket-driver 0.8.0
+#34 27.27 Fetching net-protocol 0.2.2
+#34 27.38 Fetching rack-session 2.1.2
+#34 27.56 Installing hashie 5.1.0
+#34 27.67 Installing net-protocol 0.2.2
+#34 27.74 Installing websocket-driver 0.8.0 with native extensions
+#34 27.78 Fetching rack-test 2.2.0
+#34 27.84 Installing rack-session 2.1.2
+#34 27.94 Fetching rackup 2.3.1
+#34 28.01 Fetching rack-protection 4.2.1
+#34 28.24 Fetching rack-cors 3.0.0
+#34 28.28 Fetching pp 0.6.3
+#34 28.35 Installing rackup 2.3.1
+#34 28.37 Installing rack-test 2.2.0
+#34 28.48 Fetching auth-sanitizer 0.1.4
+#34 28.56 Fetching h2c 0.2.1
+#34 28.60 Installing rack-protection 4.2.1
+#34 28.67 Installing pp 0.6.3
+#34 28.73 Installing rack-cors 3.0.0
+#34 28.76 Fetching httpx 1.7.8
+#34 28.87 Fetching nokogiri 1.19.3 (x86_64-linux-gnu)
+#34 28.91 Fetching i18n 1.14.8
+#34 29.01 Installing auth-sanitizer 0.1.4
+#34 29.02 Installing h2c 0.2.1
+#34 29.18 Fetching tzinfo 2.0.6
+#34 29.24 Fetching net-http 0.9.1
+#34 29.28 Fetching rbsecp256k1 6.0.0
+#34 29.50 Installing i18n 1.14.8
+#34 29.58 Fetching rspec-core 3.13.6
+#34 29.83 Installing httpx 1.7.8
+#34 30.21 Installing rbsecp256k1 6.0.0 with native extensions
+#34 30.23 Fetching rspec-expectations 3.13.5
+#34 30.29 Installing tzinfo 2.0.6
+#34 30.29 Installing net-http 0.9.1
+#34 30.55 Fetching rspec-mocks 3.13.8
+#34 30.63 Installing rspec-core 3.13.6
+#34 30.71 Installing rspec-expectations 3.13.5
+#34 30.79 Fetching redis 5.4.1
+#34 30.97 Installing rspec-mocks 3.13.8
+#34 31.20 Fetching sidekiq 7.3.9
+#34 31.26 Installing redis 5.4.1
+#34 31.37 Fetching net-smtp 0.5.1
+#34 31.45 Fetching snaky_hash 2.0.4
+#34 31.51 Fetching ffi-compiler 1.4.2
+#34 31.67 Fetching omniauth 2.1.4
+#34 31.79 Installing pg 1.6.3 (x86_64-linux)
+#34 31.88 Installing net-smtp 0.5.1
+#34 32.07 Installing snaky_hash 2.0.4
+#34 32.08 Installing ffi-compiler 1.4.2
+#34 32.19 Fetching faker 3.8.0
+#34 32.25 Fetching faraday-net_http 3.4.3
+#34 32.32 Fetching cronex 0.15.0
+#34 32.37 Installing omniauth 2.1.4
+#34 32.52 Installing faraday-net_http 3.4.3
+#34 32.53 Installing sidekiq 7.3.9
+#34 32.60 Fetching et-orbi 1.4.0
+#34 32.67 Fetching scrypt 3.1.0
+#34 32.88 Installing cronex 0.15.0
+#34 33.27 Installing et-orbi 1.4.0
+#34 33.30 Fetching fugit 1.12.1
+#34 33.55 Installing scrypt 3.1.0 with native extensions
+#34 34.18 Fetching reline 0.6.3
+#34 34.54 Fetching puma 6.6.1
+#34 34.55 Installing fugit 1.12.1
+#34 34.76 Installing nokogiri 1.19.3 (x86_64-linux-gnu)
+#34 34.91 Installing reline 0.6.3
+#34 35.34 Fetching loofah 2.25.1
+#34 35.61 Installing puma 6.6.1 with native extensions
+#34 35.86 Installing loofah 2.25.1
+#34 35.90 Fetching rails-html-sanitizer 1.7.0
+#34 36.29 Installing rails-html-sanitizer 1.7.0
+#34 36.38 Installing faker 3.8.0
+#34 38.66 Fetching bootsnap 1.24.5
+#34 38.84 Installing bootsnap 1.24.5 with native extensions
+#34 44.47 Fetching psych 5.3.1
+#34 44.48 Fetching net-imap 0.6.4
+#34 44.76 Installing psych 5.3.1 with native extensions
+#34 44.95 Installing net-imap 0.6.4
+#34 45.19 Fetching mail 2.9.0
+#34 45.82 Installing mail 2.9.0
+#34 46.46 Fetching faraday 2.14.2
+#34 46.66 Installing faraday 2.14.2
+#34 46.68 Fetching bls12-381 0.3.1
+#34 46.68 Fetching multi_xml 0.9.1
+#34 46.82 Installing bls12-381 0.3.1
+#34 46.88 Installing multi_xml 0.9.1
+#34 46.91 Fetching httparty 0.24.2
+#34 46.91 Fetching oauth2 2.0.20
+#34 47.10 Installing httparty 0.24.2
+#34 47.11 Installing oauth2 2.0.20
+#34 47.18 Fetching omniauth-oauth2 1.9.0
+#34 47.32 Installing omniauth-oauth2 1.9.0
+#34 47.34 Fetching omniauth-google-oauth2 1.2.2
+#34 47.45 Installing omniauth-google-oauth2 1.2.2
+#34 79.64 Fetching minitest 6.0.6
+#34 80.04 Installing minitest 6.0.6
+#34 80.08 Fetching activesupport 7.1.6
+#34 80.43 Installing activesupport 7.1.6
+#34 80.66 Fetching rails-dom-testing 2.3.0
+#34 80.67 Fetching factory_bot 6.6.0
+#34 80.69 Fetching globalid 1.3.0
+#34 80.69 Fetching activemodel 7.1.6
+#34 80.84 Installing rails-dom-testing 2.3.0
+#34 80.86 Installing globalid 1.3.0
+#34 80.89 Fetching actionview 7.1.6
+#34 80.94 Fetching activejob 7.1.6
+#34 80.94 Fetching sidekiq-cron 2.4.0
+#34 80.99 Installing factory_bot 6.6.0
+#34 81.00 Installing activemodel 7.1.6
+#34 81.16 Installing sidekiq-cron 2.4.0
+#34 81.17 Installing activejob 7.1.6
+#34 81.22 Installing actionview 7.1.6
+#34 81.28 Fetching activerecord 7.1.6
+#34 81.45 Fetching kaminari-actionview 1.2.2
+#34 81.45 Fetching actionpack 7.1.6
+#34 81.64 Installing kaminari-actionview 1.2.2
+#34 81.86 Installing activerecord 7.1.6
+#34 81.93 Installing actionpack 7.1.6
+#34 82.23 Fetching actionmailer 7.1.6
+#34 82.23 Fetching omniauth-rails_csrf_protection 2.0.1
+#34 82.23 Fetching actioncable 7.1.6
+#34 82.36 Installing omniauth-rails_csrf_protection 2.0.1
+#34 82.40 Installing actioncable 7.1.6
+#34 82.43 Installing actionmailer 7.1.6
+#34 82.58 Fetching activestorage 7.1.6
+#34 82.59 Fetching annotate 3.2.0
+#34 82.59 Fetching kaminari-activerecord 1.2.2
+#34 82.75 Installing annotate 3.2.0
+#34 82.76 Installing kaminari-activerecord 1.2.2
+#34 82.79 Fetching kaminari 1.2.2
+#34 82.83 Installing activestorage 7.1.6
+#34 82.93 Fetching actionmailbox 7.1.6
+#34 82.93 Fetching actiontext 7.1.6
+#34 82.98 Installing kaminari 1.2.2
+#34 83.10 Installing actionmailbox 7.1.6
+#34 83.21 Installing actiontext 7.1.6
+#34 100.3 Gem::Ext::BuildError: ERROR: Failed to build gem native extension.
+#34 100.3 
+#34 100.3     current directory: /usr/local/bundle/gems/psych-5.3.1/ext/psych
+#34 100.3 /usr/local/bin/ruby extconf.rb
+#34 100.3 checking for yaml.h... no
+#34 100.3 yaml.h not found
+#34 100.3 *** extconf.rb failed ***
+#34 100.3 Could not create Makefile due to some reason, probably lack of necessary
+#34 100.3 libraries and/or headers.  Check the mkmf.log file for more details.  You may
+#34 100.3 need configuration options.
+#34 100.3 
+#34 100.3 Provided configuration options:
+#34 100.3 	--with-opt-dir
+#34 100.3 	--without-opt-dir
+#34 100.3 	--with-opt-include
+#34 100.3 	--without-opt-include=${opt-dir}/include
+#34 100.3 	--with-opt-lib
+#34 100.3 	--without-opt-lib=${opt-dir}/lib
+#34 100.3 	--with-make-prog
+#34 100.3 	--without-make-prog
+#34 100.3 	--srcdir=.
+#34 100.3 	--curdir
+#34 100.3 	--ruby=/usr/local/bin/$(RUBY_BASE_NAME)
+#34 100.3 	--with-libyaml-source-dir
+#34 100.3 	--without-libyaml-source-dir
+#34 100.3 	--with-yaml-0.1-dir
+#34 100.3 	--without-yaml-0.1-dir
+#34 100.3 	--with-yaml-0.1-include
+#34 100.3 	--without-yaml-0.1-include=${yaml-0.1-dir}/include
+#34 100.3 	--with-yaml-0.1-lib
+#34 100.3 	--without-yaml-0.1-lib=${yaml-0.1-dir}/lib
+#34 100.3 	--with-yaml-0.1-config
+#34 100.3 	--without-yaml-0.1-config
+#34 100.3 	--with-pkg-config
+#34 100.3 	--without-pkg-config
+#34 100.3 	--with-libyaml-dir
+#34 100.3 	--without-libyaml-dir
+#34 100.3 	--with-libyaml-include
+#34 100.3 	--without-libyaml-include=${libyaml-dir}/include
+#34 100.3 	--with-libyaml-lib
+#34 100.3 	--without-libyaml-lib=${libyaml-dir}/lib
+#34 100.3 
+#34 100.3 To see why this extension failed to compile, please check the mkmf.log which can
+#34 100.3 be found here:
+#34 100.3 
+#34 100.3   /usr/local/bundle/extensions/x86_64-linux/3.2.0/psych-5.3.1/mkmf.log
+#34 100.3 
+#34 100.3 extconf failed, exit code 1
+#34 100.3 
+#34 100.3 Gem files will remain installed in /usr/local/bundle/gems/psych-5.3.1 for
+#34 100.3 inspection.
+#34 100.3 Results logged to
+#34 100.3 /usr/local/bundle/extensions/x86_64-linux/3.2.0/psych-5.3.1/gem_make.out
+#34 100.3 
+#34 100.3   /usr/local/lib/ruby/3.2.0/rubygems/ext/builder.rb:119:in `run'
+#34 100.3   /usr/local/lib/ruby/3.2.0/rubygems/ext/ext_conf_builder.rb:28:in `build'
+#34 100.3   /usr/local/lib/ruby/3.2.0/rubygems/ext/builder.rb:187:in `build_extension'
+#34 100.3 /usr/local/lib/ruby/3.2.0/rubygems/ext/builder.rb:221:in `block in
+#34 100.3 build_extensions'
+#34 100.3   /usr/local/lib/ruby/3.2.0/rubygems/ext/builder.rb:218:in `each'
+#34 100.3   /usr/local/lib/ruby/3.2.0/rubygems/ext/builder.rb:218:in `build_extensions'
+#34 100.3   /usr/local/lib/ruby/3.2.0/rubygems/installer.rb:846:in `build_extensions'
+#34 100.3 /usr/local/lib/ruby/3.2.0/bundler/rubygems_gem_installer.rb:72:in
+#34 100.3 `build_extensions'
+#34 100.3   /usr/local/lib/ruby/3.2.0/bundler/rubygems_gem_installer.rb:28:in `install'
+#34 100.3   /usr/local/lib/ruby/3.2.0/bundler/source/rubygems.rb:202:in `install'
+#34 100.3   /usr/local/lib/ruby/3.2.0/bundler/installer/gem_installer.rb:54:in `install'
+#34 100.3 /usr/local/lib/ruby/3.2.0/bundler/installer/gem_installer.rb:16:in
+#34 100.3 `install_from_spec'
+#34 100.3 /usr/local/lib/ruby/3.2.0/bundler/installer/parallel_installer.rb:156:in
+#34 100.3 `do_install'
+#34 100.3 /usr/local/lib/ruby/3.2.0/bundler/installer/parallel_installer.rb:147:in
+#34 100.3 `block in worker_pool'
+#34 100.3   /usr/local/lib/ruby/3.2.0/bundler/worker.rb:62:in `apply_func'
+#34 100.3   /usr/local/lib/ruby/3.2.0/bundler/worker.rb:57:in `block in process_queue'
+#34 100.3   /usr/local/lib/ruby/3.2.0/bundler/worker.rb:54:in `loop'
+#34 100.3   /usr/local/lib/ruby/3.2.0/bundler/worker.rb:54:in `process_queue'
+#34 100.3 /usr/local/lib/ruby/3.2.0/bundler/worker.rb:90:in `block (2 levels) in
+#34 100.3 create_threads'
+#34 100.3 
+#34 100.3 An error occurred while installing psych (5.3.1), and Bundler cannot continue.
+#34 100.3 
+#34 100.3 In Gemfile:
+#34 100.3   debug was resolved to 1.11.1, which depends on
+#34 100.3     irb was resolved to 1.18.0, which depends on
+#34 100.3       rdoc was resolved to 7.2.0, which depends on
+#34 100.3         psych
+#34 ERROR: process "/bin/sh -c bundle install" did not complete successfully: exit code: 5
+------
+ > [api 5/6] RUN bundle install:
+100.3 /usr/local/lib/ruby/3.2.0/bundler/worker.rb:90:in `block (2 levels) in
+100.3 create_threads'
+100.3 
+100.3 An error occurred while installing psych (5.3.1), and Bundler cannot continue.
+100.3 
+100.3 In Gemfile:
+100.3   debug was resolved to 1.11.1, which depends on
+100.3     irb was resolved to 1.18.0, which depends on
+100.3       rdoc was resolved to 7.2.0, which depends on
+100.3         psych
+------

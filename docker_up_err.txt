@@ -1,0 +1,5 @@
+ Image pr2-api Building 
+ Image pr2-sidekiq Building 
+ Image pr2-sandbox Building 
+ Image pr2-frontend Building 
+failed to execute bake: exit status 1

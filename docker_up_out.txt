@@ -1,0 +1,1517 @@
+#1 [internal] load local bake definitions
+#1 reading from stdin 2.06kB done
+#1 DONE 0.0s
+
+#2 [sidekiq internal] load build definition from Dockerfile
+#2 transferring dockerfile: 323B 0.0s done
+#2 DONE 0.0s
+
+#3 [sandbox internal] load build definition from Dockerfile
+#3 transferring dockerfile: 258B 0.0s done
+#3 DONE 0.1s
+
+#4 [frontend internal] load build definition from Dockerfile
+#4 transferring dockerfile: 568B done
+#4 DONE 0.1s
+
+#5 [frontend internal] load metadata for docker.io/library/node:20-alpine
+#5 ...
+
+#6 [frontend internal] load metadata for docker.io/library/nginx:alpine
+#6 DONE 4.3s
+
+#7 [api internal] load metadata for docker.io/library/ruby:3.2-slim
+#7 ...
+
+#5 [frontend internal] load metadata for docker.io/library/node:20-alpine
+#5 DONE 6.4s
+
+#8 [sandbox internal] load .dockerignore
+#8 transferring context: 2B done
+#8 DONE 0.0s
+
+#9 [frontend internal] load .dockerignore
+#9 transferring context: 2B done
+#9 DONE 0.1s
+
+#10 [sandbox internal] load build context
+#10 transferring context: 93B done
+#10 DONE 0.0s
+
+#11 [frontend internal] load build context
+#11 transferring context: 1.52kB 0.0s done
+#11 DONE 0.1s
+
+#12 [sandbox 1/6] FROM docker.io/library/node:20-alpine@sha256:fb4cd12c85ee03686f6af5362a0b0d56d50c58a04632e6c0fb8363f609372293
+#12 resolve docker.io/library/node:20-alpine@sha256:fb4cd12c85ee03686f6af5362a0b0d56d50c58a04632e6c0fb8363f609372293 0.1s done
+#12 DONE 0.1s
+
+#13 [sandbox 4/6] COPY package.json ./
+#13 CACHED
+
+#14 [sandbox 5/6] RUN npm install --production
+#14 CACHED
+
+#15 [sandbox 2/6] RUN apk add --no-cache python3 py3-pip ruby go gcc musl-dev
+#15 CACHED
+
+#16 [sandbox 3/6] WORKDIR /app
+#16 CACHED
+
+#17 [sandbox 6/6] COPY . .
+#17 CACHED
+
+#18 [frontend stage-1 1/3] FROM docker.io/library/nginx:alpine@sha256:8b1e78743a03dbb2c95171cc58639fef29abc8816598e27fb910ed2e621e589a
+#18 resolve docker.io/library/nginx:alpine@sha256:8b1e78743a03dbb2c95171cc58639fef29abc8816598e27fb910ed2e621e589a 0.1s done
+#18 DONE 0.1s
+
+#19 [sandbox] exporting to image
+#19 ...
+
+#20 [frontend build 4/6] RUN npm install
+#20 CACHED
+
+#21 [frontend build 5/6] COPY . .
+#21 CACHED
+
+#22 [frontend build 6/6] RUN npm run build
+#22 CACHED
+
+#23 [frontend stage-1 2/3] COPY --from=build /app/dist /usr/share/nginx/html
+#23 CACHED
+
+#24 [frontend build 2/6] WORKDIR /app
+#24 CACHED
+
+#25 [frontend build 3/6] COPY package.json package-lock.json* ./
+#25 CACHED
+
+#26 [frontend stage-1 3/3] COPY nginx.conf /etc/nginx/conf.d/default.conf
+#26 CACHED
+
+#19 [sandbox] exporting to image
+#19 exporting layers done
+#19 exporting manifest sha256:9c7cf464ceeab6c4fa49d08849fe4c6475a85df33bcf5f145acd5002423deef1 done
+#19 exporting config sha256:7e8779c5b82e268a9d7e52769ac073230a7a8c3358de9364cd7bbff1757a910c done
+#19 exporting attestation manifest sha256:48d2891f0dbc19048e1c4437e7c296fbe7b468d9b42cf2190e7ce8578f3a62c6
+#19 exporting attestation manifest sha256:48d2891f0dbc19048e1c4437e7c296fbe7b468d9b42cf2190e7ce8578f3a62c6 0.1s done
+#19 exporting manifest list sha256:b6bbcd7794a8f8a7b7989a7ca3d19f38daf071c18474e80dc7f31c83f5dfd093
+#19 exporting manifest list sha256:b6bbcd7794a8f8a7b7989a7ca3d19f38daf071c18474e80dc7f31c83f5dfd093 0.1s done
+#19 naming to docker.io/library/pr2-sandbox:latest 0.0s done
+#19 unpacking to docker.io/library/pr2-sandbox:latest 0.0s done
+#19 DONE 0.4s
+
+#27 [frontend] exporting to image
+#27 exporting layers 0.0s done
+#27 exporting manifest sha256:505b58c7cd787f874037844eb17ab4428ec87ee401e4ff5cccb3eafdb9fcafdb 0.0s done
+#27 exporting config sha256:7911a596c4dff252e53c566f636b8416aeb252ccc50825e79f6bd08af243bfe9 done
+#27 exporting attestation manifest sha256:d7a09af1f1b00ad961a6b36ecb0bfd366276d443341b16eeffe0b55c2f9dbc90 0.1s done
+#27 exporting manifest list sha256:5020b2369b4aff2404c5b18df18dd7f4e157c1deb810ba7fc00608bdb4ada218 0.0s done
+#27 naming to docker.io/library/pr2-frontend:latest done
+#27 unpacking to docker.io/library/pr2-frontend:latest 0.0s done
+#27 DONE 0.4s
+
+#7 [api internal] load metadata for docker.io/library/ruby:3.2-slim
+#7 ...
+
+#28 [sandbox] resolving provenance for metadata file
+#28 DONE 0.0s
+
+#29 [frontend] resolving provenance for metadata file
+#29 DONE 0.0s
+
+#7 [api internal] load metadata for docker.io/library/ruby:3.2-slim
+#7 DONE 7.7s
+
+#30 [api internal] load .dockerignore
+#30 transferring context: 2B done
+#30 DONE 0.0s
+
+#31 [api internal] load build context
+#31 transferring context: 4.68kB 0.0s done
+#31 DONE 0.0s
+
+#32 [sidekiq 1/6] FROM docker.io/library/ruby:3.2-slim@sha256:84184c9e2c368885a1d0c93ad1953c33d81081058d274b87b4aa6f3e209e5d16
+#32 resolve docker.io/library/ruby:3.2-slim@sha256:84184c9e2c368885a1d0c93ad1953c33d81081058d274b87b4aa6f3e209e5d16 0.1s done
+#32 resolve docker.io/library/ruby:3.2-slim@sha256:84184c9e2c368885a1d0c93ad1953c33d81081058d274b87b4aa6f3e209e5d16 0.1s done
+#32 DONE 0.1s
+
+#33 [sidekiq 2/6] RUN apt-get update -qq && apt-get install -y build-essential libpq-dev curl && rm -rf /var/lib/apt/lists/*
+#33 CACHED
+
+#34 [sidekiq 3/6] WORKDIR /app
+#34 CACHED
+
+#35 [sidekiq 4/6] COPY Gemfile Gemfile.lock* ./
+#35 CACHED
+
+#36 [sidekiq 5/6] RUN bundle install
+#36 32.45 Fetching gem metadata from https://rubygems.org/...........
+#36 39.07 Resolving dependencies...
+#36 45.53 Fetching rake 13.4.2
+#36 46.81 Installing rake 13.4.2
+#36 46.87 Fetching bigdecimal 3.3.1
+#36 46.88 Fetching concurrent-ruby 1.3.6
+#36 46.88 Fetching connection_pool 3.0.2
+#36 46.88 Fetching prism 1.9.0
+#36 46.88 Fetching securerandom 0.4.1
+#36 46.88 Fetching erubi 1.13.1
+#36 46.88 Fetching base64 0.3.0
+#36 46.88 Fetching benchmark 0.5.0
+#36 46.88 Fetching drb 2.2.3
+#36 46.91 Fetching logger 1.7.0
+#36 46.91 Fetching mutex_m 0.3.0
+#36 46.91 Fetching builder 3.3.0
+#36 46.91 Fetching cgi 0.5.1
+#36 46.91 Fetching racc 1.8.1
+#36 46.91 Fetching crass 1.0.6
+#36 46.91 Fetching rack 3.2.6
+#36 47.59 Installing securerandom 0.4.1
+#36 47.59 Installing erubi 1.13.1
+#36 47.61 Installing mutex_m 0.3.0
+#36 47.61 Installing base64 0.3.0
+#36 47.67 Fetching nio4r 2.7.5
+#36 47.70 Fetching websocket-extensions 0.1.5
+#36 47.73 Fetching zeitwerk 2.8.2
+#36 47.77 Fetching timeout 0.6.1
+#36 47.78 Installing benchmark 0.5.0
+#36 47.83 Installing logger 1.7.0
+#36 47.83 Installing connection_pool 3.0.2
+#36 47.92 Installing builder 3.3.0
+#36 47.92 Installing drb 2.2.3
+#36 47.94 Fetching mini_mime 1.1.5
+#36 47.95 Fetching marcel 1.2.1
+#36 47.95 Installing cgi 0.5.1 with native extensions
+#36 47.98 Fetching date 3.5.1
+#36 48.06 Installing bigdecimal 3.3.1 with native extensions
+#36 48.07 Installing crass 1.0.6
+#36 48.15 Fetching version_gem 1.1.9
+#36 48.24 Fetching bcrypt 3.1.22
+#36 48.27 Installing websocket-extensions 0.1.5
+#36 48.35 Installing timeout 0.6.1
+#36 48.41 Installing racc 1.8.1 with native extensions
+#36 48.47 Fetching ecdsa 1.2.0
+#36 48.49 Installing mini_mime 1.1.5
+#36 48.56 Installing zeitwerk 2.8.2
+#36 48.57 Fetching msgpack 1.8.0
+#36 48.73 Installing version_gem 1.1.9
+#36 48.74 Installing marcel 1.2.1
+#36 48.75 Fetching unicode 0.4.4.5
+#36 48.80 Installing date 3.5.1 with native extensions
+#36 48.81 Installing rack 3.2.6
+#36 48.82 Installing bcrypt 3.1.22 with native extensions
+#36 48.97 Fetching csv 3.3.5
+#36 49.01 Fetching prettyprint 0.2.0
+#36 49.04 Installing ecdsa 1.2.0
+#36 49.17 Installing msgpack 1.8.0 with native extensions
+#36 49.18 Fetching erb 6.0.4
+#36 49.28 Fetching stringio 3.2.0
+#36 49.44 Installing nio4r 2.7.5 with native extensions
+#36 49.47 Installing prettyprint 0.2.0
+#36 49.58 Fetching tsort 0.2.0
+#36 49.72 Installing concurrent-ruby 1.3.6
+#36 49.92 Fetching io-console 0.8.2
+#36 49.93 Fetching diff-lcs 1.6.2
+#36 50.00 Installing unicode 0.4.4.5 with native extensions
+#36 50.01 Installing csv 3.3.5
+#36 50.01 Installing tsort 0.2.0
+#36 50.02 Fetching dotenv 3.2.0
+#36 50.05 Installing erb 6.0.4 with native extensions
+#36 50.16 Fetching thor 1.5.0
+#36 50.30 Installing io-console 0.8.2 with native extensions
+#36 50.39 Installing dotenv 3.2.0
+#36 50.67 Installing stringio 3.2.0 with native extensions
+#36 50.70 Installing diff-lcs 1.6.2
+#36 50.71 Installing prism 1.9.0 with native extensions
+#36 50.75 Fetching forwardable 1.4.0
+#36 50.81 Fetching http-2 1.1.3
+#36 51.16 Installing thor 1.5.0
+#36 51.29 Fetching keccak 1.3.3
+#36 51.35 Installing forwardable 1.4.0
+#36 51.40 Fetching konstructor 1.0.2
+#36 51.63 Fetching openssl 3.3.3
+#36 51.83 Fetching mini_portile2 2.8.9
+#36 51.87 Fetching pkg-config 1.6.5
+#36 52.09 Installing keccak 1.3.3 with native extensions
+#36 52.10 Installing konstructor 1.0.2
+#36 52.13 Installing http-2 1.1.3
+#36 52.32 Fetching rubyzip 2.4.1
+#36 52.42 Fetching ffi 1.17.4 (x86_64-linux-gnu)
+#36 52.58 Fetching uri 1.1.1
+#36 52.91 Fetching json 2.19.5
+#36 53.00 Installing rubyzip 2.4.1
+#36 53.01 Installing pkg-config 1.6.5
+#36 53.06 Installing mini_portile2 2.8.9
+#36 53.10 Fetching raabro 1.4.0
+#36 53.21 Fetching kaminari-core 1.2.2
+#36 53.29 Fetching pg 1.6.3 (x86_64-linux)
+#36 53.55 Installing openssl 3.3.3 with native extensions
+#36 53.72 Installing uri 1.1.1
+#36 53.77 Fetching rspec-support 3.13.7
+#36 53.87 Installing raabro 1.4.0
+#36 53.87 Installing kaminari-core 1.2.2
+#36 53.93 Fetching jwt 2.10.3
+#36 54.03 Installing ffi 1.17.4 (x86_64-linux-gnu)
+#36 54.10 Installing json 2.19.5 with native extensions
+#36 54.11 Installing rspec-support 3.13.7
+#36 54.20 Fetching redis-client 0.29.0
+#36 54.33 Fetching hashie 5.1.0
+#36 54.63 Installing jwt 2.10.3
+#36 55.03 Installing redis-client 0.29.0
+#36 55.52 Installing hashie 5.1.0
+#36 55.88 Fetching websocket-driver 0.8.0
+#36 56.04 Fetching net-protocol 0.2.2
+#36 56.09 Fetching auth-sanitizer 0.1.4
+#36 56.24 Fetching h2c 0.2.1
+#36 56.29 Fetching pp 0.6.3
+#36 56.50 Fetching rack-session 2.1.2
+#36 58.51 Fetching rack-test 2.2.0
+#36 61.13 Installing rack-session 2.1.2
+#36 61.16 Fetching rackup 2.3.1
+#36 61.84 Fetching rack-protection 4.2.1
+#36 61.98 Installing rack-test 2.2.0
+#36 61.98 Installing rackup 2.3.1
+#36 62.02 Fetching rack-cors 3.0.0
+#36 62.06 Fetching nokogiri 1.19.3 (x86_64-linux-gnu)
+#36 62.37 Installing rack-protection 4.2.1
+#36 62.39 Fetching i18n 1.14.8
+#36 62.45 Fetching tzinfo 2.0.6
+#36 62.52 Installing rack-cors 3.0.0
+#36 62.52 Installing websocket-driver 0.8.0 with native extensions
+#36 62.55 Fetching httpx 1.7.8
+#36 63.53 Fetching rbsecp256k1 6.0.0
+#36 64.10 Installing net-protocol 0.2.2
+#36 64.10 Installing pp 0.6.3
+#36 64.10 Installing h2c 0.2.1
+#36 64.15 Fetching net-http 0.9.1
+#36 64.20 Fetching rspec-core 3.13.6
+#36 64.27 Fetching rspec-expectations 3.13.5
+#36 64.46 Installing i18n 1.14.8
+#36 64.54 Fetching rspec-mocks 3.13.8
+#36 64.80 Installing tzinfo 2.0.6
+#36 64.89 Fetching redis 5.4.1
+#36 64.96 Installing rbsecp256k1 6.0.0 with native extensions
+#36 65.35 Installing net-http 0.9.1
+#36 65.40 Fetching sidekiq 7.3.9
+#36 65.54 Installing httpx 1.7.8
+#36 65.81 Installing rspec-expectations 3.13.5
+#36 65.82 Installing auth-sanitizer 0.1.4
+#36 65.85 Installing rspec-core 3.13.6
+#36 65.92 Installing rspec-mocks 3.13.8
+#36 66.02 Fetching ffi-compiler 1.4.2
+#36 66.09 Installing redis 5.4.1
+#36 66.34 Fetching snaky_hash 2.0.4
+#36 66.39 Fetching reline 0.6.3
+#36 66.45 Fetching puma 6.6.1
+#36 66.60 Fetching omniauth 2.1.4
+#36 66.86 Fetching net-smtp 0.5.1
+#36 66.93 Installing ffi-compiler 1.4.2
+#36 66.96 Fetching faker 3.8.0
+#36 67.13 Installing snaky_hash 2.0.4
+#36 67.15 Fetching cronex 0.15.0
+#36 67.22 Fetching et-orbi 1.4.0
+#36 67.30 Installing reline 0.6.3
+#36 67.45 Installing omniauth 2.1.4
+#36 67.53 Fetching faraday-net_http 3.4.3
+#36 67.66 Installing net-smtp 0.5.1
+#36 67.70 Installing cronex 0.15.0
+#36 67.81 Fetching scrypt 3.1.0
+#36 67.82 Installing et-orbi 1.4.0
+#36 67.86 Installing faraday-net_http 3.4.3
+#36 67.89 Fetching bootsnap 1.24.5
+#36 67.97 Installing puma 6.6.1 with native extensions
+#36 67.98 Installing sidekiq 7.3.9
+#36 68.08 Fetching fugit 1.12.1
+#36 68.75 Installing pg 1.6.3 (x86_64-linux)
+#36 71.37 Installing fugit 1.12.1
+#36 72.06 Installing bootsnap 1.24.5 with native extensions
+#36 74.81 Fetching net-imap 0.6.4
+#36 74.82 Fetching psych 5.3.1
+#36 74.93 Installing scrypt 3.1.0 with native extensions
+#36 75.16 Installing faker 3.8.0
+#36 75.74 Installing psych 5.3.1 with native extensions
+#36 76.77 Installing net-imap 0.6.4
+#36 77.37 Fetching mail 2.9.0
+#36 77.83 Fetching multi_xml 0.9.1
+#36 77.88 Fetching bls12-381 0.3.1
+#36 78.14 Fetching faraday 2.14.2
+#36 79.86 Installing bls12-381 0.3.1
+#36 79.90 Installing multi_xml 0.9.1
+#36 79.98 Installing faraday 2.14.2
+#36 80.09 Fetching httparty 0.24.2
+#36 80.25 Fetching oauth2 2.0.20
+#36 80.86 Installing httparty 0.24.2
+#36 81.10 Installing oauth2 2.0.20
+#36 81.30 Fetching omniauth-oauth2 1.9.0
+#36 81.43 Installing mail 2.9.0
+#36 81.64 Installing nokogiri 1.19.3 (x86_64-linux-gnu)
+#36 81.69 Installing omniauth-oauth2 1.9.0
+#36 81.93 Fetching omniauth-google-oauth2 1.2.2
+#36 82.48 Fetching loofah 2.25.1
+#36 83.84 Installing omniauth-google-oauth2 1.2.2
+#36 83.86 Installing loofah 2.25.1
+#36 83.92 Fetching rails-html-sanitizer 1.7.0
+#36 84.44 Installing rails-html-sanitizer 1.7.0
+#36 124.6 Fetching minitest 6.0.6
+#36 126.2 Installing minitest 6.0.6
+#36 126.3 Fetching activesupport 7.1.6
+#36 126.7 Installing activesupport 7.1.6
+#36 127.0 Fetching globalid 1.3.0
+#36 127.0 Fetching rails-dom-testing 2.3.0
+#36 127.0 Fetching factory_bot 6.6.0
+#36 127.0 Fetching activemodel 7.1.6
+#36 127.3 Installing rails-dom-testing 2.3.0
+#36 127.3 Installing globalid 1.3.0
+#36 127.4 Fetching actionview 7.1.6
+#36 127.4 Installing factory_bot 6.6.0
+#36 127.4 Installing activemodel 7.1.6
+#36 127.5 Fetching activejob 7.1.6
+#36 127.5 Fetching sidekiq-cron 2.4.0
+#36 127.7 Fetching activerecord 7.1.6
+#36 128.1 Installing sidekiq-cron 2.4.0
+#36 128.1 Installing activejob 7.1.6
+#36 130.8 Installing activerecord 7.1.6
+#36 131.1 Fetching annotate 3.2.0
+#36 131.1 Fetching kaminari-activerecord 1.2.2
+#36 131.5 Installing kaminari-activerecord 1.2.2
+#36 131.5 Installing actionview 7.1.6
+#36 131.6 Installing annotate 3.2.0
+#36 131.6 Fetching kaminari-actionview 1.2.2
+#36 131.6 Fetching actionpack 7.1.6
+#36 132.1 Installing kaminari-actionview 1.2.2
+#36 132.2 Fetching kaminari 1.2.2
+#36 132.4 Installing kaminari 1.2.2
+#36 132.4 Installing actionpack 7.1.6
+#36 132.6 Fetching activestorage 7.1.6
+#36 132.6 Fetching omniauth-rails_csrf_protection 2.0.1
+#36 132.6 Fetching actioncable 7.1.6
+#36 132.6 Fetching actionmailer 7.1.6
+#36 132.9 Installing omniauth-rails_csrf_protection 2.0.1
+#36 133.0 Installing activestorage 7.1.6
+#36 133.0 Installing actionmailer 7.1.6
+#36 133.0 Installing actioncable 7.1.6
+#36 133.3 Fetching actionmailbox 7.1.6
+#36 133.3 Fetching actiontext 7.1.6
+#36 133.5 Installing actionmailbox 7.1.6
+#36 133.5 Installing actiontext 7.1.6
+#36 155.0 Gem::Ext::BuildError: ERROR: Failed to build gem native extension.
+#36 155.0 
+#36 155.0     current directory: /usr/local/bundle/gems/psych-5.3.1/ext/psych
+#36 155.0 /usr/local/bin/ruby extconf.rb
+#36 155.0 checking for yaml.h... no
+#36 155.0 yaml.h not found
+#36 155.0 *** extconf.rb failed ***
+#36 155.0 Could not create Makefile due to some reason, probably lack of necessary
+#36 155.0 libraries and/or headers.  Check the mkmf.log file for more details.  You may
+#36 155.0 need configuration options.
+#36 155.0 
+#36 155.0 Provided configuration options:
+#36 155.0 	--with-opt-dir
+#36 155.0 	--without-opt-dir
+#36 155.0 	--with-opt-include
+#36 155.0 	--without-opt-include=${opt-dir}/include
+#36 155.0 	--with-opt-lib
+#36 155.0 	--without-opt-lib=${opt-dir}/lib
+#36 155.0 	--with-make-prog
+#36 155.0 	--without-make-prog
+#36 155.0 	--srcdir=.
+#36 155.0 	--curdir
+#36 155.0 	--ruby=/usr/local/bin/$(RUBY_BASE_NAME)
+#36 155.0 	--with-libyaml-source-dir
+#36 155.0 	--without-libyaml-source-dir
+#36 155.0 	--with-yaml-0.1-dir
+#36 155.0 	--without-yaml-0.1-dir
+#36 155.0 	--with-yaml-0.1-include
+#36 155.0 	--without-yaml-0.1-include=${yaml-0.1-dir}/include
+#36 155.0 	--with-yaml-0.1-lib
+#36 155.0 	--without-yaml-0.1-lib=${yaml-0.1-dir}/lib
+#36 155.0 	--with-yaml-0.1-config
+#36 155.0 	--without-yaml-0.1-config
+#36 155.0 	--with-pkg-config
+#36 155.0 	--without-pkg-config
+#36 155.0 	--with-libyaml-dir
+#36 155.0 	--without-libyaml-dir
+#36 155.0 	--with-libyaml-include
+#36 155.0 	--without-libyaml-include=${libyaml-dir}/include
+#36 155.0 	--with-libyaml-lib
+#36 155.0 	--without-libyaml-lib=${libyaml-dir}/lib
+#36 155.0 
+#36 155.0 To see why this extension failed to compile, please check the mkmf.log which can
+#36 155.0 be found here:
+#36 155.0 
+#36 155.0   /usr/local/bundle/extensions/x86_64-linux/3.2.0/psych-5.3.1/mkmf.log
+#36 155.0 
+#36 155.0 extconf failed, exit code 1
+#36 155.0 
+#36 155.0 Gem files will remain installed in /usr/local/bundle/gems/psych-5.3.1 for
+#36 155.0 inspection.
+#36 155.0 Results logged to
+#36 155.0 /usr/local/bundle/extensions/x86_64-linux/3.2.0/psych-5.3.1/gem_make.out
+#36 155.0 
+#36 155.0   /usr/local/lib/ruby/3.2.0/rubygems/ext/builder.rb:119:in `run'
+#36 155.0   /usr/local/lib/ruby/3.2.0/rubygems/ext/ext_conf_builder.rb:28:in `build'
+#36 155.0   /usr/local/lib/ruby/3.2.0/rubygems/ext/builder.rb:187:in `build_extension'
+#36 155.0 /usr/local/lib/ruby/3.2.0/rubygems/ext/builder.rb:221:in `block in
+#36 155.0 build_extensions'
+#36 155.0   /usr/local/lib/ruby/3.2.0/rubygems/ext/builder.rb:218:in `each'
+#36 155.0   /usr/local/lib/ruby/3.2.0/rubygems/ext/builder.rb:218:in `build_extensions'
+#36 155.0   /usr/local/lib/ruby/3.2.0/rubygems/installer.rb:846:in `build_extensions'
+#36 155.0 /usr/local/lib/ruby/3.2.0/bundler/rubygems_gem_installer.rb:72:in
+#36 155.0 `build_extensions'
+#36 155.0   /usr/local/lib/ruby/3.2.0/bundler/rubygems_gem_installer.rb:28:in `install'
+#36 155.0   /usr/local/lib/ruby/3.2.0/bundler/source/rubygems.rb:202:in `install'
+#36 155.0   /usr/local/lib/ruby/3.2.0/bundler/installer/gem_installer.rb:54:in `install'
+#36 155.0 /usr/local/lib/ruby/3.2.0/bundler/installer/gem_installer.rb:16:in
+#36 155.0 `install_from_spec'
+#36 155.0 /usr/local/lib/ruby/3.2.0/bundler/installer/parallel_installer.rb:156:in
+#36 155.0 `do_install'
+#36 155.0 /usr/local/lib/ruby/3.2.0/bundler/installer/parallel_installer.rb:147:in
+#36 155.0 `block in worker_pool'
+#36 155.0   /usr/local/lib/ruby/3.2.0/bundler/worker.rb:62:in `apply_func'
+#36 155.0   /usr/local/lib/ruby/3.2.0/bundler/worker.rb:57:in `block in process_queue'
+#36 155.0   /usr/local/lib/ruby/3.2.0/bundler/worker.rb:54:in `loop'
+#36 155.0   /usr/local/lib/ruby/3.2.0/bundler/worker.rb:54:in `process_queue'
+#36 155.0 /usr/local/lib/ruby/3.2.0/bundler/worker.rb:90:in `block (2 levels) in
+#36 155.0 create_threads'
+#36 155.0 
+#36 155.0 An error occurred while installing psych (5.3.1), and Bundler cannot continue.
+#36 155.0 
+#36 155.0 In Gemfile:
+#36 155.0   debug was resolved to 1.11.1, which depends on
+#36 155.0     irb was resolved to 1.18.0, which depends on
+#36 155.0       rdoc was resolved to 7.2.0, which depends on
+#36 155.0         psych
+#36 155.0 
+#36 155.0 
+#36 155.0 Gem::Ext::BuildError: ERROR: Failed to build gem native extension.
+#36 155.0 
+#36 155.0     current directory: /usr/local/bundle/gems/rbsecp256k1-6.0.0/ext/rbsecp256k1
+#36 155.0 /usr/local/bin/ruby extconf.rb
+#36 155.0 Downloading libsecp256k1.zip (  0%) Downloading libsecp256k1.zip (  0%) 
+#36 155.0 Downloading libsecp256k1.zip (  0%) Downloading libsecp256k1.zip (  0%) 
+#36 155.0 Downloading libsecp256k1.zip (  0%) Downloading libsecp256k1.zip (  0%) 
+#36 155.0 Downloading libsecp256k1.zip (  0%) Downloading libsecp256k1.zip (  0%) 
+#36 155.0 Downloading libsecp256k1.zip (  0%) Downloading libsecp256k1.zip (  0%) 
+#36 155.0 Downloading libsecp256k1.zip (  0%) Downloading libsecp256k1.zip (  0%) 
+#36 155.0 Downloading libsecp256k1.zip (  0%) Downloading libsecp256k1.zip (  0%) 
+#36 155.0 Downloading libsecp256k1.zip (  0%) Downloading libsecp256k1.zip (  0%) 
+#36 155.0 Downloading libsecp256k1.zip (  0%) Downloading libsecp256k1.zip (  0%) 
+#36 155.0 Downloading libsecp256k1.zip (  1%) Downloading libsecp256k1.zip (  1%) 
+#36 155.0 Downloading libsecp256k1.zip (  1%) Downloading libsecp256k1.zip (  1%) 
+#36 155.0 Downloading libsecp256k1.zip (  1%) Downloading libsecp256k1.zip (  1%) 
+#36 155.0 Downloading libsecp256k1.zip (  1%) Downloading libsecp256k1.zip (  1%) 
+#36 155.0 Downloading libsecp256k1.zip (  1%) Downloading libsecp256k1.zip (  1%) 
+#36 155.0 Downloading libsecp256k1.zip (  1%) Downloading libsecp256k1.zip (  1%) 
+#36 155.0 Downloading libsecp256k1.zip (  1%) Downloading libsecp256k1.zip (  1%) 
+#36 155.0 Downloading libsecp256k1.zip (  1%) Downloading libsecp256k1.zip (  1%) 
+#36 155.0 Downloading libsecp256k1.zip (  1%) Downloading libsecp256k1.zip (  1%) 
+#36 155.0 Downloading libsecp256k1.zip (  1%) Downloading libsecp256k1.zip (  1%) 
+#36 155.0 Downloading libsecp256k1.zip (  2%) Downloading libsecp256k1.zip (  2%) 
+#36 155.0 Downloading libsecp256k1.zip (  2%) Downloading libsecp256k1.zip (  2%) 
+#36 155.0 Downloading libsecp256k1.zip (  2%) Downloading libsecp256k1.zip (  2%) 
+#36 155.0 Downloading libsecp256k1.zip (  2%) Downloading libsecp256k1.zip (  2%) 
+#36 155.0 Downloading libsecp256k1.zip (  2%) Downloading libsecp256k1.zip (  2%) 
+#36 155.0 Downloading libsecp256k1.zip (  2%) Downloading libsecp256k1.zip (  2%) 
+#36 155.0 Downloading libsecp256k1.zip (  2%) Downloading libsecp256k1.zip (  2%) 
+#36 155.0 Downloading libsecp256k1.zip (  2%) Downloading libsecp256k1.zip (  2%) 
+#36 155.0 Downloading libsecp256k1.zip (  2%) Downloading libsecp256k1.zip (  2%) 
+#36 155.0 Downloading libsecp256k1.zip (  3%) Downloading libsecp256k1.zip (  3%) 
+#36 155.0 Downloading libsecp256k1.zip (  3%) Downloading libsecp256k1.zip (  3%) 
+#36 155.0 Downloading libsecp256k1.zip (  3%) Downloading libsecp256k1.zip (  3%) 
+#36 155.0 Downloading libsecp256k1.zip (  3%) Downloading libsecp256k1.zip (  3%) 
+#36 155.0 Downloading libsecp256k1.zip (  3%) Downloading libsecp256k1.zip (  3%) 
+#36 155.0 Downloading libsecp256k1.zip (  3%) Downloading libsecp256k1.zip (  3%) 
+#36 155.0 Downloading libsecp256k1.zip (  3%) Downloading libsecp256k1.zip (  3%) 
+#36 155.0 Downloading libsecp256k1.zip (  3%) Downloading libsecp256k1.zip (  3%) 
+#36 155.0 Downloading libsecp256k1.zip (  3%) Downloading libsecp256k1.zip (  3%) 
+#36 155.0 Downloading libsecp256k1.zip (  3%) Downloading libsecp256k1.zip (  4%) 
+#36 155.0 Downloading libsecp256k1.zip (  4%) Downloading libsecp256k1.zip (  4%) 
+#36 155.0 Downloading libsecp256k1.zip (  4%) Downloading libsecp256k1.zip (  4%) 
+#36 155.0 Downloading libsecp256k1.zip (  4%) Downloading libsecp256k1.zip (  4%) 
+#36 155.0 Downloading libsecp256k1.zip (  4%) Downloading libsecp256k1.zip (  4%) 
+#36 155.0 Downloading libsecp256k1.zip (  4%) Downloading libsecp256k1.zip (  4%) 
+#36 155.0 Downloading libsecp256k1.zip (  4%) Downloading libsecp256k1.zip (  4%) 
+#36 155.0 Downloading libsecp256k1.zip (  4%) Downloading libsecp256k1.zip (  4%) 
+#36 155.0 Downloading libsecp256k1.zip (  4%) Downloading libsecp256k1.zip (  4%) 
+#36 155.0 Downloading libsecp256k1.zip (  4%) Downloading libsecp256k1.zip (  4%) 
+#36 155.0 Downloading libsecp256k1.zip (  5%) Downloading libsecp256k1.zip (  5%) 
+#36 155.0 Downloading libsecp256k1.zip (  5%) Downloading libsecp256k1.zip (  5%) 
+#36 155.0 Downloading libsecp256k1.zip (  5%) Downloading libsecp256k1.zip (  5%) 
+#36 155.0 Downloading libsecp256k1.zip (  5%) Downloading libsecp256k1.zip (  5%) 
+#36 155.0 Downloading libsecp256k1.zip (  5%) Downloading libsecp256k1.zip (  5%) 
+#36 155.0 Downloading libsecp256k1.zip (  5%) Downloading libsecp256k1.zip (  5%) 
+#36 155.0 Downloading libsecp256k1.zip (  5%) Downloading libsecp256k1.zip (  5%) 
+#36 155.0 Downloading libsecp256k1.zip (  5%) Downloading libsecp256k1.zip (  5%) 
+#36 155.0 Downloading libsecp256k1.zip (  5%) Downloading libsecp256k1.zip (  5%) 
+#36 155.0 Downloading libsecp256k1.zip (  6%) Downloading libsecp256k1.zip (  6%) 
+#36 155.0 Downloading libsecp256k1.zip (  6%) Downloading libsecp256k1.zip (  6%) 
+#36 155.0 Downloading libsecp256k1.zip (  6%) Downloading libsecp256k1.zip (  6%) 
+#36 155.0 Downloading libsecp256k1.zip (  6%) Downloading libsecp256k1.zip (  6%) 
+#36 155.0 Downloading libsecp256k1.zip (  6%) Downloading libsecp256k1.zip (  6%) 
+#36 155.0 Downloading libsecp256k1.zip (  6%) Downloading libsecp256k1.zip (  6%) 
+#36 155.0 Downloading libsecp256k1.zip (  6%) Downloading libsecp256k1.zip (  6%) 
+#36 155.0 Downloading libsecp256k1.zip (  6%) Downloading libsecp256k1.zip (  6%) 
+#36 155.0 Downloading libsecp256k1.zip (  6%) Downloading libsecp256k1.zip (  6%) 
+#36 155.0 Downloading libsecp256k1.zip (  6%) Downloading libsecp256k1.zip (  7%) 
+#36 155.0 Downloading libsecp256k1.zip (  7%) Downloading libsecp256k1.zip (  7%) 
+#36 155.0 Downloading libsecp256k1.zip (  7%) Downloading libsecp256k1.zip (  7%) 
+#36 155.0 Downloading libsecp256k1.zip (  7%) Downloading libsecp256k1.zip (  7%) 
+#36 155.0 Downloading libsecp256k1.zip (  7%) Downloading libsecp256k1.zip (  7%) 
+#36 155.0 Downloading libsecp256k1.zip (  7%) Downloading libsecp256k1.zip (  7%) 
+#36 155.0 Downloading libsecp256k1.zip (  7%) Downloading libsecp256k1.zip (  7%) 
+#36 155.0 Downloading libsecp256k1.zip (  7%) Downloading libsecp256k1.zip (  7%) 
+#36 155.0 Downloading libsecp256k1.zip (  7%) Downloading libsecp256k1.zip (  7%) 
+#36 155.0 Downloading libsecp256k1.zip (  7%) Downloading libsecp256k1.zip (  7%) 
+#36 155.0 Downloading libsecp256k1.zip (  8%) Downloading libsecp256k1.zip (  8%) 
+#36 155.0 Downloading libsecp256k1.zip (  8%) Downloading libsecp256k1.zip (  8%) 
+#36 155.0 Downloading libsecp256k1.zip (  8%) Downloading libsecp256k1.zip (  8%) 
+#36 155.0 Downloading libsecp256k1.zip (  8%) Downloading libsecp256k1.zip (  8%) 
+#36 155.0 Downloading libsecp256k1.zip (  8%) Downloading libsecp256k1.zip (  8%) 
+#36 155.0 Downloading libsecp256k1.zip (  8%) Downloading libsecp256k1.zip (  8%) 
+#36 155.0 Downloading libsecp256k1.zip (  8%) Downloading libsecp256k1.zip (  8%) 
+#36 155.0 Downloading libsecp256k1.zip (  8%) Downloading libsecp256k1.zip (  8%) 
+#36 155.0 Downloading libsecp256k1.zip (  8%) Downloading libsecp256k1.zip (  8%) 
+#36 155.0 Downloading libsecp256k1.zip (  9%) Downloading libsecp256k1.zip (  9%) 
+#36 155.0 Downloading libsecp256k1.zip (  9%) Downloading libsecp256k1.zip (  9%) 
+#36 155.0 Downloading libsecp256k1.zip (  9%) Downloading libsecp256k1.zip (  9%) 
+#36 155.0 Downloading libsecp256k1.zip (  9%) Downloading libsecp256k1.zip (  9%) 
+#36 155.0 Downloading libsecp256k1.zip (  9%) Downloading libsecp256k1.zip (  9%) 
+#36 155.0 Downloading libsecp256k1.zip (  9%) Downloading libsecp256k1.zip (  9%) 
+#36 155.0 Downloading libsecp256k1.zip (  9%) Downloading libsecp256k1.zip (  9%) 
+#36 155.0 Downloading libsecp256k1.zip (  9%) Downloading libsecp256k1.zip (  9%) 
+#36 155.0 Downloading libsecp256k1.zip (  9%) Downloading libsecp256k1.zip (  9%) 
+#36 155.0 Downloading libsecp256k1.zip (  9%) Downloading libsecp256k1.zip ( 10%) 
+#36 155.0 Downloading libsecp256k1.zip ( 10%) Downloading libsecp256k1.zip ( 10%) 
+#36 155.0 Downloading libsecp256k1.zip ( 10%) Downloading libsecp256k1.zip ( 10%) 
+#36 155.0 Downloading libsecp256k1.zip ( 10%) Downloading libsecp256k1.zip ( 10%) 
+#36 155.0 Downloading libsecp256k1.zip ( 10%) Downloading libsecp256k1.zip ( 10%) 
+#36 155.0 Downloading libsecp256k1.zip ( 10%) Downloading libsecp256k1.zip ( 10%) 
+#36 155.0 Downloading libsecp256k1.zip ( 10%) Downloading libsecp256k1.zip ( 10%) 
+#36 155.0 Downloading libsecp256k1.zip ( 10%) Downloading libsecp256k1.zip ( 10%) 
+#36 155.0 Downloading libsecp256k1.zip ( 10%) Downloading libsecp256k1.zip ( 10%) 
+#36 155.0 Downloading libsecp256k1.zip ( 10%) Downloading libsecp256k1.zip ( 10%) 
+#36 155.0 Downloading libsecp256k1.zip ( 11%) Downloading libsecp256k1.zip ( 11%) 
+#36 155.0 Downloading libsecp256k1.zip ( 11%) Downloading libsecp256k1.zip ( 11%) 
+#36 155.0 Downloading libsecp256k1.zip ( 11%) Downloading libsecp256k1.zip ( 11%) 
+#36 155.0 Downloading libsecp256k1.zip ( 11%) Downloading libsecp256k1.zip ( 11%) 
+#36 155.0 Downloading libsecp256k1.zip ( 11%) Downloading libsecp256k1.zip ( 11%) 
+#36 155.0 Downloading libsecp256k1.zip ( 11%) Downloading libsecp256k1.zip ( 11%) 
+#36 155.0 Downloading libsecp256k1.zip ( 11%) Downloading libsecp256k1.zip ( 11%) 
+#36 155.0 Downloading libsecp256k1.zip ( 11%) Downloading libsecp256k1.zip ( 11%) 
+#36 155.0 Downloading libsecp256k1.zip ( 11%) Downloading libsecp256k1.zip ( 11%) 
+#36 155.0 Downloading libsecp256k1.zip ( 11%) Downloading libsecp256k1.zip ( 12%) 
+#36 155.0 Downloading libsecp256k1.zip ( 12%) Downloading libsecp256k1.zip ( 12%) 
+#36 155.0 Downloading libsecp256k1.zip ( 12%) Downloading libsecp256k1.zip ( 12%) 
+#36 155.0 Downloading libsecp256k1.zip ( 12%) Downloading libsecp256k1.zip ( 12%) 
+#36 155.0 Downloading libsecp256k1.zip ( 12%) Downloading libsecp256k1.zip ( 12%) 
+#36 155.0 Downloading libsecp256k1.zip ( 12%) Downloading libsecp256k1.zip ( 12%) 
+#36 155.0 Downloading libsecp256k1.zip ( 12%) Downloading libsecp256k1.zip ( 12%) 
+#36 155.0 Downloading libsecp256k1.zip ( 12%) Downloading libsecp256k1.zip ( 12%) 
+#36 155.0 Downloading libsecp256k1.zip ( 12%) Downloading libsecp256k1.zip ( 12%) 
+#36 155.0 Downloading libsecp256k1.zip ( 12%) Downloading libsecp256k1.zip ( 13%) 
+#36 155.0 Downloading libsecp256k1.zip ( 13%) Downloading libsecp256k1.zip ( 13%) 
+#36 155.0 Downloading libsecp256k1.zip ( 13%) Downloading libsecp256k1.zip ( 13%) 
+#36 155.0 Downloading libsecp256k1.zip ( 13%) Downloading libsecp256k1.zip ( 13%) 
+#36 155.0 Downloading libsecp256k1.zip ( 13%) Downloading libsecp256k1.zip ( 13%) 
+#36 155.0 Downloading libsecp256k1.zip ( 13%) Downloading libsecp256k1.zip ( 13%) 
+#36 155.0 Downloading libsecp256k1.zip ( 13%) Downloading libsecp256k1.zip ( 13%) 
+#36 155.0 Downloading libsecp256k1.zip ( 13%) Downloading libsecp256k1.zip ( 13%) 
+#36 155.0 Downloading libsecp256k1.zip ( 13%) Downloading libsecp256k1.zip ( 13%) 
+#36 155.0 Downloading libsecp256k1.zip ( 13%) Downloading libsecp256k1.zip ( 13%) 
+#36 155.0 Downloading libsecp256k1.zip ( 14%) Downloading libsecp256k1.zip ( 14%) 
+#36 155.0 Downloading libsecp256k1.zip ( 14%) Downloading libsecp256k1.zip ( 14%) 
+#36 155.0 Downloading libsecp256k1.zip ( 14%) Downloading libsecp256k1.zip ( 14%) 
+#36 155.0 Downloading libsecp256k1.zip ( 14%) Downloading libsecp256k1.zip ( 14%) 
+#36 155.0 Downloading libsecp256k1.zip ( 14%) Downloading libsecp256k1.zip ( 14%) 
+#36 155.0 Downloading libsecp256k1.zip ( 14%) Downloading libsecp256k1.zip ( 14%) 
+#36 155.0 Downloading libsecp256k1.zip ( 14%) Downloading libsecp256k1.zip ( 14%) 
+#36 155.0 Downloading libsecp256k1.zip ( 14%) Downloading libsecp256k1.zip ( 14%) 
+#36 155.0 Downloading libsecp256k1.zip ( 14%) Downloading libsecp256k1.zip ( 14%) 
+#36 155.0 Downloading libsecp256k1.zip ( 14%) Downloading libsecp256k1.zip ( 15%) 
+#36 155.0 Downloading libsecp256k1.zip ( 15%) Downloading libsecp256k1.zip ( 15%) 
+#36 155.0 Downloading libsecp256k1.zip ( 15%) Downloading libsecp256k1.zip ( 15%) 
+#36 155.0 Downloading libsecp256k1.zip ( 15%) Downloading libsecp256k1.zip ( 15%) 
+#36 155.0 Downloading libsecp256k1.zip ( 15%) Downloading libsecp256k1.zip ( 15%) 
+#36 155.0 Downloading libsecp256k1.zip ( 15%) Downloading libsecp256k1.zip ( 15%) 
+#36 155.0 Downloading libsecp256k1.zip ( 15%) Downloading libsecp256k1.zip ( 15%) 
+#36 155.0 Downloading libsecp256k1.zip ( 15%) Downloading libsecp256k1.zip ( 15%) 
+#36 155.0 Downloading libsecp256k1.zip ( 15%) Downloading libsecp256k1.zip ( 15%) 
+#36 155.0 Downloading libsecp256k1.zip ( 15%) Downloading libsecp256k1.zip ( 16%) 
+#36 155.0 Downloading libsecp256k1.zip ( 16%) Downloading libsecp256k1.zip ( 16%) 
+#36 155.0 Downloading libsecp256k1.zip ( 16%) Downloading libsecp256k1.zip ( 16%) 
+#36 155.0 Downloading libsecp256k1.zip ( 16%) Downloading libsecp256k1.zip ( 16%) 
+#36 155.0 Downloading libsecp256k1.zip ( 16%) Downloading libsecp256k1.zip ( 16%) 
+#36 155.0 Downloading libsecp256k1.zip ( 16%) Downloading libsecp256k1.zip ( 16%) 
+#36 155.0 Downloading libsecp256k1.zip ( 16%) Downloading libsecp256k1.zip ( 16%) 
+#36 155.0 Downloading libsecp256k1.zip ( 16%) Downloading libsecp256k1.zip ( 16%) 
+#36 155.0 Downloading libsecp256k1.zip ( 16%) Downloading libsecp256k1.zip ( 16%) 
+#36 155.0 Downloading libsecp256k1.zip ( 16%) Downloading libsecp256k1.zip ( 16%) 
+#36 155.0 Downloading libsecp256k1.zip ( 17%) Downloading libsecp256k1.zip ( 17%) 
+#36 155.0 Downloading libsecp256k1.zip ( 17%) Downloading libsecp256k1.zip ( 17%) 
+#36 155.0 Downloading libsecp256k1.zip ( 17%) Downloading libsecp256k1.zip ( 17%) 
+#36 155.0 Downloading libsecp256k1.zip ( 17%) Downloading libsecp256k1.zip ( 17%) 
+#36 155.0 Downloading libsecp256k1.zip ( 17%) Downloading libsecp256k1.zip ( 17%) 
+#36 155.0 Downloading libsecp256k1.zip ( 17%) Downloading libsecp256k1.zip ( 17%) 
+#36 155.0 Downloading libsecp256k1.zip ( 17%) Downloading libsecp256k1.zip ( 17%) 
+#36 155.0 Downloading libsecp256k1.zip ( 17%) Downloading libsecp256k1.zip ( 17%) 
+#36 155.0 Downloading libsecp256k1.zip ( 17%) Downloading libsecp256k1.zip ( 17%) 
+#36 155.0 Downloading libsecp256k1.zip ( 18%) Downloading libsecp256k1.zip ( 18%) 
+#36 155.0 Downloading libsecp256k1.zip ( 18%) Downloading libsecp256k1.zip ( 18%) 
+#36 155.0 Downloading libsecp256k1.zip ( 18%) Downloading libsecp256k1.zip ( 18%) 
+#36 155.0 Downloading libsecp256k1.zip ( 18%) Downloading libsecp256k1.zip ( 18%) 
+#36 155.0 Downloading libsecp256k1.zip ( 18%) Downloading libsecp256k1.zip ( 18%) 
+#36 155.0 Downloading libsecp256k1.zip ( 18%) Downloading libsecp256k1.zip ( 18%) 
+#36 155.0 Downloading libsecp256k1.zip ( 18%) Downloading libsecp256k1.zip ( 18%) 
+#36 155.0 Downloading libsecp256k1.zip ( 18%) Downloading libsecp256k1.zip ( 18%) 
+#36 155.0 Downloading libsecp256k1.zip ( 18%) Downloading libsecp256k1.zip ( 18%) 
+#36 155.0 Downloading libsecp256k1.zip ( 18%) Downloading libsecp256k1.zip ( 18%) 
+#36 155.0 Downloading libsecp256k1.zip ( 19%) Downloading libsecp256k1.zip ( 19%) 
+#36 155.0 Downloading libsecp256k1.zip ( 19%) Downloading libsecp256k1.zip ( 19%) 
+#36 155.0 Downloading libsecp256k1.zip ( 19%) Downloading libsecp256k1.zip ( 19%) 
+#36 155.0 Downloading libsecp256k1.zip ( 19%) Downloading libsecp256k1.zip ( 19%) 
+#36 155.0 Downloading libsecp256k1.zip ( 19%) Downloading libsecp256k1.zip ( 19%) 
+#36 155.0 Downloading libsecp256k1.zip ( 19%) Downloading libsecp256k1.zip ( 19%) 
+#36 155.0 Downloading libsecp256k1.zip ( 19%) Downloading libsecp256k1.zip ( 19%) 
+#36 155.0 Downloading libsecp256k1.zip ( 19%) Downloading libsecp256k1.zip ( 19%) 
+#36 155.0 Downloading libsecp256k1.zip ( 19%) Downloading libsecp256k1.zip ( 19%) 
+#36 155.0 Downloading libsecp256k1.zip ( 20%) Downloading libsecp256k1.zip ( 20%) 
+#36 155.0 Downloading libsecp256k1.zip ( 20%) Downloading libsecp256k1.zip ( 20%) 
+#36 155.0 Downloading libsecp256k1.zip ( 20%) Downloading libsecp256k1.zip ( 20%) 
+#36 155.0 Downloading libsecp256k1.zip ( 20%) Downloading libsecp256k1.zip ( 20%) 
+#36 155.0 Downloading libsecp256k1.zip ( 20%) Downloading libsecp256k1.zip ( 20%) 
+#36 155.0 Downloading libsecp256k1.zip ( 20%) Downloading libsecp256k1.zip ( 20%) 
+#36 155.0 Downloading libsecp256k1.zip ( 20%) Downloading libsecp256k1.zip ( 20%) 
+#36 155.0 Downloading libsecp256k1.zip ( 20%) Downloading libsecp256k1.zip ( 20%) 
+#36 155.0 Downloading libsecp256k1.zip ( 20%) Downloading libsecp256k1.zip ( 20%) 
+#36 155.0 Downloading libsecp256k1.zip ( 21%) Downloading libsecp256k1.zip ( 21%) 
+#36 155.0 Downloading libsecp256k1.zip ( 21%) Downloading libsecp256k1.zip ( 21%) 
+#36 155.0 Downloading libsecp256k1.zip ( 21%) Downloading libsecp256k1.zip ( 21%) 
+#36 155.0 Downloading libsecp256k1.zip ( 21%) Downloading libsecp256k1.zip ( 21%) 
+#36 155.0 Downloading libsecp256k1.zip ( 21%) Downloading libsecp256k1.zip ( 21%) 
+#36 155.0 Downloading libsecp256k1.zip ( 21%) Downloading libsecp256k1.zip ( 21%) 
+#36 155.0 Downloading libsecp256k1.zip ( 21%) Downloading libsecp256k1.zip ( 21%) 
+#36 155.0 Downloading libsecp256k1.zip ( 21%) Downloading libsecp256k1.zip ( 21%) 
+#36 155.0 Downloading libsecp256k1.zip ( 21%) Downloading libsecp256k1.zip ( 21%) 
+#36 155.0 Downloading libsecp256k1.zip ( 21%) Downloading libsecp256k1.zip ( 22%) 
+#36 155.0 Downloading libsecp256k1.zip ( 22%) Downloading libsecp256k1.zip ( 22%) 
+#36 155.0 Downloading libsecp256k1.zip ( 22%) Downloading libsecp256k1.zip ( 22%) 
+#36 155.0 Downloading libsecp256k1.zip ( 22%) Downloading libsecp256k1.zip ( 22%) 
+#36 155.0 Downloading libsecp256k1.zip ( 22%) Downloading libsecp256k1.zip ( 22%) 
+#36 155.0 Downloading libsecp256k1.zip ( 22%) Downloading libsecp256k1.zip ( 22%) 
+#36 155.0 Downloading libsecp256k1.zip ( 22%) Downloading libsecp256k1.zip ( 22%) 
+#36 155.0 Downloading libsecp256k1.zip ( 22%) Downloading libsecp256k1.zip ( 22%) 
+#36 155.0 Downloading libsecp256k1.zip ( 22%) Downloading libsecp256k1.zip ( 22%) 
+#36 155.0 Downloading libsecp256k1.zip ( 22%) Downloading libsecp256k1.zip ( 23%) 
+#36 155.0 Downloading libsecp256k1.zip ( 23%) Downloading libsecp256k1.zip ( 23%) 
+#36 155.0 Downloading libsecp256k1.zip ( 23%) Downloading libsecp256k1.zip ( 23%) 
+#36 155.0 Downloading libsecp256k1.zip ( 23%) Downloading libsecp256k1.zip ( 23%) 
+#36 155.0 Downloading libsecp256k1.zip ( 23%) Downloading libsecp256k1.zip ( 23%) 
+#36 155.0 Downloading libsecp256k1.zip ( 23%) Downloading libsecp256k1.zip ( 23%) 
+#36 155.0 Downloading libsecp256k1.zip ( 23%) Downloading libsecp256k1.zip ( 23%) 
+#36 155.0 Downloading libsecp256k1.zip ( 23%) Downloading libsecp256k1.zip ( 23%) 
+#36 155.0 Downloading libsecp256k1.zip ( 23%) Downloading libsecp256k1.zip ( 23%) 
+#36 155.0 Downloading libsecp256k1.zip ( 23%) Downloading libsecp256k1.zip ( 23%) 
+#36 155.0 Downloading libsecp256k1.zip ( 24%) Downloading libsecp256k1.zip ( 24%) 
+#36 155.0 Downloading libsecp256k1.zip ( 24%) Downloading libsecp256k1.zip ( 24%) 
+#36 155.0 Downloading libsecp256k1.zip ( 24%) Downloading libsecp256k1.zip ( 24%) 
+#36 155.0 Downloading libsecp256k1.zip ( 24%) Downloading libsecp256k1.zip ( 24%) 
+#36 155.0 Downloading libsecp256k1.zip ( 24%) Downloading libsecp256k1.zip ( 24%) 
+#36 155.0 Downloading libsecp256k1.zip ( 24%) Downloading libsecp256k1.zip ( 24%) 
+#36 155.0 Downloading libsecp256k1.zip ( 24%) Downloading libsecp256k1.zip ( 24%) 
+#36 155.0 Downloading libsecp256k1.zip ( 24%) Downloading libsecp256k1.zip ( 24%) 
+#36 155.0 Downloading libsecp256k1.zip ( 24%) Downloading libsecp256k1.zip ( 24%) 
+#36 155.0 Downloading libsecp256k1.zip ( 24%) Downloading libsecp256k1.zip ( 25%) 
+#36 155.0 Downloading libsecp256k1.zip ( 25%) Downloading libsecp256k1.zip ( 25%) 
+#36 155.0 Downloading libsecp256k1.zip ( 25%) Downloading libsecp256k1.zip ( 25%) 
+#36 155.0 Downloading libsecp256k1.zip ( 25%) Downloading libsecp256k1.zip ( 25%) 
+#36 155.0 Downloading libsecp256k1.zip ( 25%) Downloading libsecp256k1.zip ( 25%) 
+#36 155.0 Downloading libsecp256k1.zip ( 25%) Downloading libsecp256k1.zip ( 25%) 
+#36 155.0 Downloading libsecp256k1.zip ( 25%) Downloading libsecp256k1.zip ( 25%) 
+#36 155.0 Downloading libsecp256k1.zip ( 25%) Downloading libsecp256k1.zip ( 25%) 
+#36 155.0 Downloading libsecp256k1.zip ( 25%) Downloading libsecp256k1.zip ( 25%) 
+#36 155.0 Downloading libsecp256k1.zip ( 25%) Downloading libsecp256k1.zip ( 26%) 
+#36 155.0 Downloading libsecp256k1.zip ( 26%) Downloading libsecp256k1.zip ( 26%) 
+#36 155.0 Downloading libsecp256k1.zip ( 26%) Downloading libsecp256k1.zip ( 26%) 
+#36 155.0 Downloading libsecp256k1.zip ( 26%) Downloading libsecp256k1.zip ( 26%) 
+#36 155.0 Downloading libsecp256k1.zip ( 26%) Downloading libsecp256k1.zip ( 26%) 
+#36 155.0 Downloading libsecp256k1.zip ( 26%) Downloading libsecp256k1.zip ( 26%) 
+#36 155.0 Downloading libsecp256k1.zip ( 26%) Downloading libsecp256k1.zip ( 26%) 
+#36 155.0 Downloading libsecp256k1.zip ( 26%) Downloading libsecp256k1.zip ( 26%) 
+#36 155.0 Downloading libsecp256k1.zip ( 26%) Downloading libsecp256k1.zip ( 26%) 
+#36 155.0 Downloading libsecp256k1.zip ( 26%) Downloading libsecp256k1.zip ( 27%) 
+#36 155.0 Downloading libsecp256k1.zip ( 27%) Downloading libsecp256k1.zip ( 27%) 
+#36 155.0 Downloading libsecp256k1.zip ( 27%) Downloading libsecp256k1.zip ( 27%) 
+#36 155.0 Downloading libsecp256k1.zip ( 27%) Downloading libsecp256k1.zip ( 27%) 
+#36 155.0 Downloading libsecp256k1.zip ( 27%) Downloading libsecp256k1.zip ( 27%) 
+#36 155.0 Downloading libsecp256k1.zip ( 27%) Downloading libsecp256k1.zip ( 27%) 
+#36 155.0 Downloading libsecp256k1.zip ( 27%) Downloading libsecp256k1.zip ( 27%) 
+#36 155.0 Downloading libsecp256k1.zip ( 27%) Downloading libsecp256k1.zip ( 27%) 
+#36 155.0 Downloading libsecp256k1.zip ( 27%) Downloading libsecp256k1.zip ( 27%) 
+#36 155.0 Downloading libsecp256k1.zip ( 27%) Downloading libsecp256k1.zip ( 27%) 
+#36 155.0 Downloading libsecp256k1.zip ( 28%) Downloading libsecp256k1.zip ( 28%) 
+#36 155.0 Downloading libsecp256k1.zip ( 28%) Downloading libsecp256k1.zip ( 28%) 
+#36 155.0 Downloading libsecp256k1.zip ( 28%) Downloading libsecp256k1.zip ( 28%) 
+#36 155.0 Downloading libsecp256k1.zip ( 28%) Downloading libsecp256k1.zip ( 28%) 
+#36 155.0 Downloading libsecp256k1.zip ( 28%) Downloading libsecp256k1.zip ( 28%) 
+#36 155.0 Downloading libsecp256k1.zip ( 28%) Downloading libsecp256k1.zip ( 28%) 
+#36 155.0 Downloading libsecp256k1.zip ( 28%) Downloading libsecp256k1.zip ( 28%) 
+#36 155.0 Downloading libsecp256k1.zip ( 28%) Downloading libsecp256k1.zip ( 28%) 
+#36 155.0 Downloading libsecp256k1.zip ( 28%) Downloading libsecp256k1.zip ( 28%) 
+#36 155.0 Downloading libsecp256k1.zip ( 28%) Downloading libsecp256k1.zip ( 29%) 
+#36 155.0 Downloading libsecp256k1.zip ( 29%) Downloading libsecp256k1.zip ( 29%) 
+#36 155.0 Downloading libsecp256k1.zip ( 29%) Downloading libsecp256k1.zip ( 29%) 
+#36 155.0 Downloading libsecp256k1.zip ( 29%) Downloading libsecp256k1.zip ( 29%) 
+#36 155.0 Downloading libsecp256k1.zip ( 29%) Downloading libsecp256k1.zip ( 29%) 
+#36 155.0 Downloading libsecp256k1.zip ( 29%) Downloading libsecp256k1.zip ( 29%) 
+#36 155.0 Downloading libsecp256k1.zip ( 29%) Downloading libsecp256k1.zip ( 29%) 
+#36 155.0 Downloading libsecp256k1.zip ( 29%) Downloading libsecp256k1.zip ( 29%) 
+#36 155.0 Downloading libsecp256k1.zip ( 29%) Downloading libsecp256k1.zip ( 29%) 
+#36 155.0 Downloading libsecp256k1.zip ( 29%) Downloading libsecp256k1.zip ( 30%) 
+#36 155.0 Downloading libsecp256k1.zip ( 30%) Downloading libsecp256k1.zip ( 30%) 
+#36 155.0 Downloading libsecp256k1.zip ( 30%) Downloading libsecp256k1.zip ( 30%) 
+#36 155.0 Downloading libsecp256k1.zip ( 30%) Downloading libsecp256k1.zip ( 30%) 
+#36 155.0 Downloading libsecp256k1.zip ( 30%) Downloading libsecp256k1.zip ( 30%) 
+#36 155.0 Downloading libsecp256k1.zip ( 30%) Downloading libsecp256k1.zip ( 30%) 
+#36 155.0 Downloading libsecp256k1.zip ( 30%) Downloading libsecp256k1.zip ( 30%) 
+#36 155.0 Downloading libsecp256k1.zip ( 30%) Downloading libsecp256k1.zip ( 30%) 
+#36 155.0 Downloading libsecp256k1.zip ( 30%) Downloading libsecp256k1.zip ( 30%) 
+#36 155.0 Downloading libsecp256k1.zip ( 30%) Downloading libsecp256k1.zip ( 30%) 
+#36 155.0 Downloading libsecp256k1.zip ( 30%) Downloading libsecp256k1.zip ( 31%) 
+#36 155.0 Downloading libsecp256k1.zip ( 31%) Downloading libsecp256k1.zip ( 31%) 
+#36 155.0 Downloading libsecp256k1.zip ( 31%) Downloading libsecp256k1.zip ( 31%) 
+#36 155.0 Downloading libsecp256k1.zip ( 31%) Downloading libsecp256k1.zip ( 31%) 
+#36 155.0 Downloading libsecp256k1.zip ( 31%) Downloading libsecp256k1.zip ( 31%) 
+#36 155.0 Downloading libsecp256k1.zip ( 31%) Downloading libsecp256k1.zip ( 31%) 
+#36 155.0 Downloading libsecp256k1.zip ( 31%) Downloading libsecp256k1.zip ( 31%) 
+#36 155.0 Downloading libsecp256k1.zip ( 31%) Downloading libsecp256k1.zip ( 31%) 
+#36 155.0 Downloading libsecp256k1.zip ( 31%) Downloading libsecp256k1.zip ( 31%) 
+#36 155.0 Downloading libsecp256k1.zip ( 31%) Downloading libsecp256k1.zip ( 32%) 
+#36 155.0 Downloading libsecp256k1.zip ( 32%) Downloading libsecp256k1.zip ( 32%) 
+#36 155.0 Downloading libsecp256k1.zip ( 32%) Downloading libsecp256k1.zip ( 32%) 
+#36 155.0 Downloading libsecp256k1.zip ( 32%) Downloading libsecp256k1.zip ( 32%) 
+#36 155.0 Downloading libsecp256k1.zip ( 32%) Downloading libsecp256k1.zip ( 32%) 
+#36 155.0 Downloading libsecp256k1.zip ( 32%) Downloading libsecp256k1.zip ( 32%) 
+#36 155.0 Downloading libsecp256k1.zip ( 32%) Downloading libsecp256k1.zip ( 32%) 
+#36 155.0 Downloading libsecp256k1.zip ( 32%) Downloading libsecp256k1.zip ( 32%) 
+#36 155.0 Downloading libsecp256k1.zip ( 32%) Downloading libsecp256k1.zip ( 32%) 
+#36 155.0 Downloading libsecp256k1.zip ( 32%) Downloading libsecp256k1.zip ( 33%) 
+#36 155.0 Downloading libsecp256k1.zip ( 33%) Downloading libsecp256k1.zip ( 33%) 
+#36 155.0 Downloading libsecp256k1.zip ( 33%) Downloading libsecp256k1.zip ( 33%) 
+#36 155.0 Downloading libsecp256k1.zip ( 33%) Downloading libsecp256k1.zip ( 33%) 
+#36 155.0 Downloading libsecp256k1.zip ( 33%) Downloading libsecp256k1.zip ( 33%) 
+#36 155.0 Downloading libsecp256k1.zip ( 33%) Downloading libsecp256k1.zip ( 33%) 
+#36 155.0 Downloading libsecp256k1.zip ( 33%) Downloading libsecp256k1.zip ( 33%) 
+#36 155.0 Downloading libsecp256k1.zip ( 33%) Downloading libsecp256k1.zip ( 33%) 
+#36 155.0 Downloading libsecp256k1.zip ( 33%) Downloading libsecp256k1.zip ( 33%) 
+#36 155.0 Downloading libsecp256k1.zip ( 33%) Downloading libsecp256k1.zip ( 33%) 
+#36 155.0 Downloading libsecp256k1.zip ( 34%) Downloading libsecp256k1.zip ( 34%) 
+#36 155.0 Downloading libsecp256k1.zip ( 34%) Downloading libsecp256k1.zip ( 34%) 
+#36 155.0 Downloading libsecp256k1.zip ( 34%) Downloading libsecp256k1.zip ( 34%) 
+#36 155.0 Downloading libsecp256k1.zip ( 34%) Downloading libsecp256k1.zip ( 34%) 
+#36 155.0 Downloading libsecp256k1.zip ( 34%) Downloading libsecp256k1.zip ( 34%) 
+#36 155.0 Downloading libsecp256k1.zip ( 34%) Downloading libsecp256k1.zip ( 34%) 
+#36 155.0 Downloading libsecp256k1.zip ( 34%) Downloading libsecp256k1.zip ( 34%) 
+#36 155.0 Downloading libsecp256k1.zip ( 34%) Downloading libsecp256k1.zip ( 34%) 
+#36 155.0 Downloading libsecp256k1.zip ( 34%) Downloading libsecp256k1.zip ( 34%) 
+#36 155.0 Downloading libsecp256k1.zip ( 34%) Downloading libsecp256k1.zip ( 35%) 
+#36 155.0 Downloading libsecp256k1.zip ( 35%) Downloading libsecp256k1.zip ( 35%) 
+#36 155.0 Downloading libsecp256k1.zip ( 35%) Downloading libsecp256k1.zip ( 35%) 
+#36 155.0 Downloading libsecp256k1.zip ( 35%) Downloading libsecp256k1.zip ( 35%) 
+#36 155.0 Downloading libsecp256k1.zip ( 35%) Downloading libsecp256k1.zip ( 35%) 
+#36 155.0 Downloading libsecp256k1.zip ( 35%) Downloading libsecp256k1.zip ( 35%) 
+#36 155.0 Downloading libsecp256k1.zip ( 35%) Downloading libsecp256k1.zip ( 35%) 
+#36 155.0 Downloading libsecp256k1.zip ( 35%) Downloading libsecp256k1.zip ( 35%) 
+#36 155.0 Downloading libsecp256k1.zip ( 35%) Downloading libsecp256k1.zip ( 35%) 
+#36 155.0 Downloading libsecp256k1.zip ( 35%) Downloading libsecp256k1.zip ( 35%) 
+#36 155.0 Downloading libsecp256k1.zip ( 36%) Downloading libsecp256k1.zip ( 36%) 
+#36 155.0 Downloading libsecp256k1.zip ( 36%) Downloading libsecp256k1.zip ( 36%) 
+#36 155.0 Downloading libsecp256k1.zip ( 36%) Downloading libsecp256k1.zip ( 36%) 
+#36 155.0 Downloading libsecp256k1.zip ( 36%) Downloading libsecp256k1.zip ( 36%) 
+#36 155.0 Downloading libsecp256k1.zip ( 36%) Downloading libsecp256k1.zip ( 36%) 
+#36 155.0 Downloading libsecp256k1.zip ( 36%) Downloading libsecp256k1.zip ( 36%) 
+#36 155.0 Downloading libsecp256k1.zip ( 36%) Downloading libsecp256k1.zip ( 36%) 
+#36 155.0 Downloading libsecp256k1.zip ( 36%) Downloading libsecp256k1.zip ( 36%) 
+#36 155.0 Downloading libsecp256k1.zip ( 36%) Downloading libsecp256k1.zip ( 36%) 
+#36 155.0 Downloading libsecp256k1.zip ( 36%) Downloading libsecp256k1.zip ( 37%) 
+#36 155.0 Downloading libsecp256k1.zip ( 37%) Downloading libsecp256k1.zip ( 37%) 
+#36 155.0 Downloading libsecp256k1.zip ( 37%) Downloading libsecp256k1.zip ( 37%) 
+#36 155.0 Downloading libsecp256k1.zip ( 37%) Downloading libsecp256k1.zip ( 37%) 
+#36 155.0 Downloading libsecp256k1.zip ( 37%) Downloading libsecp256k1.zip ( 37%) 
+#36 155.0 Downloading libsecp256k1.zip ( 37%) Downloading libsecp256k1.zip ( 37%) 
+#36 155.0 Downloading libsecp256k1.zip ( 37%) Downloading libsecp256k1.zip ( 37%) 
+#36 155.0 Downloading libsecp256k1.zip ( 37%) Downloading libsecp256k1.zip ( 37%) 
+#36 155.0 Downloading libsecp256k1.zip ( 37%) Downloading libsecp256k1.zip ( 37%) 
+#36 155.0 Downloading libsecp256k1.zip ( 37%) Downloading libsecp256k1.zip ( 38%) 
+#36 155.0 Downloading libsecp256k1.zip ( 38%) Downloading libsecp256k1.zip ( 38%) 
+#36 155.0 Downloading libsecp256k1.zip ( 38%) Downloading libsecp256k1.zip ( 38%) 
+#36 155.0 Downloading libsecp256k1.zip ( 38%) Downloading libsecp256k1.zip ( 38%) 
+#36 155.0 Downloading libsecp256k1.zip ( 38%) Downloading libsecp256k1.zip ( 38%) 
+#36 155.0 Downloading libsecp256k1.zip ( 38%) Downloading libsecp256k1.zip ( 38%) 
+#36 155.0 Downloading libsecp256k1.zip ( 38%) Downloading libsecp256k1.zip ( 38%) 
+#36 155.0 Downloading libsecp256k1.zip ( 38%) Downloading libsecp256k1.zip ( 38%) 
+#36 155.0 Downloading libsecp256k1.zip ( 38%) Downloading libsecp256k1.zip ( 38%) 
+#36 155.0 Downloading libsecp256k1.zip ( 38%) Downloading libsecp256k1.zip ( 38%) 
+#36 155.0 Downloading libsecp256k1.zip ( 39%) Downloading libsecp256k1.zip ( 39%) 
+#36 155.0 Downloading libsecp256k1.zip ( 39%) Downloading libsecp256k1.zip ( 39%) 
+#36 155.0 Downloading libsecp256k1.zip ( 39%) Downloading libsecp256k1.zip ( 39%) 
+#36 155.0 Downloading libsecp256k1.zip ( 39%) Downloading libsecp256k1.zip ( 39%) 
+#36 155.0 Downloading libsecp256k1.zip ( 39%) Downloading libsecp256k1.zip ( 39%) 
+#36 155.0 Downloading libsecp256k1.zip ( 39%) Downloading libsecp256k1.zip ( 39%) 
+#36 155.0 Downloading libsecp256k1.zip ( 39%) Downloading libsecp256k1.zip ( 39%) 
+#36 155.0 Downloading libsecp256k1.zip ( 39%) Downloading libsecp256k1.zip ( 39%) 
+#36 155.0 Downloading libsecp256k1.zip ( 39%) Downloading libsecp256k1.zip ( 39%) 
+#36 155.0 Downloading libsecp256k1.zip ( 40%) Downloading libsecp256k1.zip ( 40%) 
+#36 155.0 Downloading libsecp256k1.zip ( 40%) Downloading libsecp256k1.zip ( 40%) 
+#36 155.0 Downloading libsecp256k1.zip ( 40%) Downloading libsecp256k1.zip ( 40%) 
+#36 155.0 Downloading libsecp256k1.zip ( 40%) Downloading libsecp256k1.zip ( 40%) 
+#36 155.0 Downloading libsecp256k1.zip ( 40%) Downloading libsecp256k1.zip ( 40%) 
+#36 155.0 Downloading libsecp256k1.zip ( 40%) Downloading libsecp256k1.zip ( 40%) 
+#36 155.0 Downloading libsecp256k1.zip ( 40%) Downloading libsecp256k1.zip ( 40%) 
+#36 155.0 Downloading libsecp256k1.zip ( 40%) Downloading libsecp256k1.zip ( 40%) 
+#36 155.0 Downloading libsecp256k1.zip ( 40%) Downloading libsecp256k1.zip ( 40%) 
+#36 155.0 Downloading libsecp256k1.zip ( 41%) Downloading libsecp256k1.zip ( 41%) 
+#36 155.0 Downloading libsecp256k1.zip ( 41%) Downloading libsecp256k1.zip ( 41%) 
+#36 155.0 Downloading libsecp256k1.zip ( 41%) Downloading libsecp256k1.zip ( 41%) 
+#36 155.0 Downloading libsecp256k1.zip ( 41%) Downloading libsecp256k1.zip ( 41%) 
+#36 155.0 Downloading libsecp256k1.zip ( 41%) Downloading libsecp256k1.zip ( 41%) 
+#36 155.0 Downloading libsecp256k1.zip ( 41%) Downloading libsecp256k1.zip ( 41%) 
+#36 155.0 Downloading libsecp256k1.zip ( 41%) Downloading libsecp256k1.zip ( 41%) 
+#36 155.0 Downloading libsecp256k1.zip ( 41%) Downloading libsecp256k1.zip ( 41%) 
+#36 155.0 Downloading libsecp256k1.zip ( 41%) Downloading libsecp256k1.zip ( 41%) 
+#36 155.0 Downloading libsecp256k1.zip ( 41%) Downloading libsecp256k1.zip ( 41%) 
+#36 155.0 Downloading libsecp256k1.zip ( 42%) Downloading libsecp256k1.zip ( 42%) 
+#36 155.0 Downloading libsecp256k1.zip ( 42%) Downloading libsecp256k1.zip ( 42%) 
+#36 155.0 Downloading libsecp256k1.zip ( 42%) Downloading libsecp256k1.zip ( 42%) 
+#36 155.0 Downloading libsecp256k1.zip ( 42%) Downloading libsecp256k1.zip ( 42%) 
+#36 155.0 Downloading libsecp256k1.zip ( 42%) Downloading libsecp256k1.zip ( 42%) 
+#36 155.0 Downloading libsecp256k1.zip ( 42%) Downloading libsecp256k1.zip ( 42%) 
+#36 155.0 Downloading libsecp256k1.zip ( 42%) Downloading libsecp256k1.zip ( 42%) 
+#36 155.0 Downloading libsecp256k1.zip ( 42%) Downloading libsecp256k1.zip ( 42%) 
+#36 155.0 Downloading libsecp256k1.zip ( 42%) Downloading libsecp256k1.zip ( 42%) 
+#36 155.0 Downloading libsecp256k1.zip ( 43%) Downloading libsecp256k1.zip ( 43%) 
+#36 155.0 Downloading libsecp256k1.zip ( 43%) Downloading libsecp256k1.zip ( 43%) 
+#36 155.0 Downloading libsecp256k1.zip ( 43%) Downloading libsecp256k1.zip ( 43%) 
+#36 155.0 Downloading libsecp256k1.zip ( 43%) Downloading libsecp256k1.zip ( 43%) 
+#36 155.0 Downloading libsecp256k1.zip ( 43%) Downloading libsecp256k1.zip ( 43%) 
+#36 155.0 Downloading libsecp256k1.zip ( 43%) Downloading libsecp256k1.zip ( 43%) 
+#36 155.0 Downloading libsecp256k1.zip ( 43%) Downloading libsecp256k1.zip ( 43%) 
+#36 155.0 Downloading libsecp256k1.zip ( 43%) Downloading libsecp256k1.zip ( 43%) 
+#36 155.0 Downloading libsecp256k1.zip ( 43%) Downloading libsecp256k1.zip ( 43%) 
+#36 155.0 Downloading libsecp256k1.zip ( 44%) Downloading libsecp256k1.zip ( 44%) 
+#36 155.0 Downloading libsecp256k1.zip ( 44%) Downloading libsecp256k1.zip ( 44%) 
+#36 155.0 Downloading libsecp256k1.zip ( 44%) Downloading libsecp256k1.zip ( 44%) 
+#36 155.0 Downloading libsecp256k1.zip ( 44%) Downloading libsecp256k1.zip ( 44%) 
+#36 155.0 Downloading libsecp256k1.zip ( 44%) Downloading libsecp256k1.zip ( 44%) 
+#36 155.0 Downloading libsecp256k1.zip ( 44%) Downloading libsecp256k1.zip ( 44%) 
+#36 155.0 Downloading libsecp256k1.zip ( 44%) Downloading libsecp256k1.zip ( 44%) 
+#36 155.0 Downloading libsecp256k1.zip ( 44%) Downloading libsecp256k1.zip ( 44%) 
+#36 155.0 Downloading libsecp256k1.zip ( 44%) Downloading libsecp256k1.zip ( 44%) 
+#36 155.0 Downloading libsecp256k1.zip ( 44%) Downloading libsecp256k1.zip ( 44%) 
+#36 155.0 Downloading libsecp256k1.zip ( 45%) Downloading libsecp256k1.zip ( 45%) 
+#36 155.0 Downloading libsecp256k1.zip ( 45%) Downloading libsecp256k1.zip ( 45%) 
+#36 155.0 Downloading libsecp256k1.zip ( 45%) Downloading libsecp256k1.zip ( 45%) 
+#36 155.0 Downloading libsecp256k1.zip ( 45%) Downloading libsecp256k1.zip ( 45%) 
+#36 155.0 Downloading libsecp256k1.zip ( 45%) Downloading libsecp256k1.zip ( 45%) 
+#36 155.0 Downloading libsecp256k1.zip ( 45%) Downloading libsecp256k1.zip ( 45%) 
+#36 155.0 Downloading libsecp256k1.zip ( 45%) Downloading libsecp256k1.zip ( 45%) 
+#36 155.0 Downloading libsecp256k1.zip ( 45%) Downloading libsecp256k1.zip ( 45%) 
+#36 155.0 Downloading libsecp256k1.zip ( 45%) Downloading libsecp256k1.zip ( 45%) 
+#36 155.0 Downloading libsecp256k1.zip ( 46%) Downloading libsecp256k1.zip ( 46%) 
+#36 155.0 Downloading libsecp256k1.zip ( 46%) Downloading libsecp256k1.zip ( 46%) 
+#36 155.0 Downloading libsecp256k1.zip ( 46%) Downloading libsecp256k1.zip ( 46%) 
+#36 155.0 Downloading libsecp256k1.zip ( 46%) Downloading libsecp256k1.zip ( 46%) 
+#36 155.0 Downloading libsecp256k1.zip ( 46%) Downloading libsecp256k1.zip ( 46%) 
+#36 155.0 Downloading libsecp256k1.zip ( 46%) Downloading libsecp256k1.zip ( 46%) 
+#36 155.0 Downloading libsecp256k1.zip ( 46%) Downloading libsecp256k1.zip ( 46%) 
+#36 155.0 Downloading libsecp256k1.zip ( 46%) Downloading libsecp256k1.zip ( 46%) 
+#36 155.0 Downloading libsecp256k1.zip ( 46%) Downloading libsecp256k1.zip ( 46%) 
+#36 155.0 Downloading libsecp256k1.zip ( 46%) Downloading libsecp256k1.zip ( 47%) 
+#36 155.0 Downloading libsecp256k1.zip ( 47%) Downloading libsecp256k1.zip ( 47%) 
+#36 155.0 Downloading libsecp256k1.zip ( 47%) Downloading libsecp256k1.zip ( 47%) 
+#36 155.0 Downloading libsecp256k1.zip ( 47%) Downloading libsecp256k1.zip ( 47%) 
+#36 155.0 Downloading libsecp256k1.zip ( 47%) Downloading libsecp256k1.zip ( 47%) 
+#36 155.0 Downloading libsecp256k1.zip ( 47%) Downloading libsecp256k1.zip ( 47%) 
+#36 155.0 Downloading libsecp256k1.zip ( 47%) Downloading libsecp256k1.zip ( 47%) 
+#36 155.0 Downloading libsecp256k1.zip ( 47%) Downloading libsecp256k1.zip ( 47%) 
+#36 155.0 Downloading libsecp256k1.zip ( 47%) Downloading libsecp256k1.zip ( 47%) 
+#36 155.0 Downloading libsecp256k1.zip ( 47%) Downloading libsecp256k1.zip ( 47%) 
+#36 155.0 Downloading libsecp256k1.zip ( 48%) Downloading libsecp256k1.zip ( 48%) 
+#36 155.0 Downloading libsecp256k1.zip ( 48%) Downloading libsecp256k1.zip ( 48%) 
+#36 155.0 Downloading libsecp256k1.zip ( 48%) Downloading libsecp256k1.zip ( 48%) 
+#36 155.0 Downloading libsecp256k1.zip ( 48%) Downloading libsecp256k1.zip ( 48%) 
+#36 155.0 Downloading libsecp256k1.zip ( 48%) Downloading libsecp256k1.zip ( 48%) 
+#36 155.0 Downloading libsecp256k1.zip ( 48%) Downloading libsecp256k1.zip ( 48%) 
+#36 155.0 Downloading libsecp256k1.zip ( 48%) Downloading libsecp256k1.zip ( 48%) 
+#36 155.0 Downloading libsecp256k1.zip ( 48%) Downloading libsecp256k1.zip ( 48%) 
+#36 155.0 Downloading libsecp256k1.zip ( 48%) Downloading libsecp256k1.zip ( 48%) 
+#36 155.0 Downloading libsecp256k1.zip ( 49%) Downloading libsecp256k1.zip ( 49%) 
+#36 155.0 Downloading libsecp256k1.zip ( 49%) Downloading libsecp256k1.zip ( 49%) 
+#36 155.0 Downloading libsecp256k1.zip ( 49%) Downloading libsecp256k1.zip ( 49%) 
+#36 155.0 Downloading libsecp256k1.zip ( 49%) Downloading libsecp256k1.zip ( 49%) 
+#36 155.0 Downloading libsecp256k1.zip ( 49%) Downloading libsecp256k1.zip ( 49%) 
+#36 155.0 Downloading libsecp256k1.zip ( 49%) Downloading libsecp256k1.zip ( 49%) 
+#36 155.0 Downloading libsecp256k1.zip ( 49%) Downloading libsecp256k1.zip ( 49%) 
+#36 155.0 Downloading libsecp256k1.zip ( 49%) Downloading libsecp256k1.zip ( 49%) 
+#36 155.0 Downloading libsecp256k1.zip ( 49%) Downloading libsecp256k1.zip ( 49%) 
+#36 155.0 Downloading libsecp256k1.zip ( 50%) Downloading libsecp256k1.zip ( 50%) 
+#36 155.0 Downloading libsecp256k1.zip ( 50%) Downloading libsecp256k1.zip ( 50%) 
+#36 155.0 Downloading libsecp256k1.zip ( 50%) Downloading libsecp256k1.zip ( 50%) 
+#36 155.0 Downloading libsecp256k1.zip ( 50%) Downloading libsecp256k1.zip ( 50%) 
+#36 155.0 Downloading libsecp256k1.zip ( 50%) Downloading libsecp256k1.zip ( 50%) 
+#36 155.0 Downloading libsecp256k1.zip ( 50%) Downloading libsecp256k1.zip ( 50%) 
+#36 155.0 Downloading libsecp256k1.zip ( 50%) Downloading libsecp256k1.zip ( 50%) 
+#36 155.0 Downloading libsecp256k1.zip ( 50%) Downloading libsecp256k1.zip ( 50%) 
+#36 155.0 Downloading libsecp256k1.zip ( 50%) Downloading libsecp256k1.zip ( 50%) 
+#36 155.0 Downloading libsecp256k1.zip ( 50%) Downloading libsecp256k1.zip ( 51%) 
+#36 155.0 Downloading libsecp256k1.zip ( 51%) Downloading libsecp256k1.zip ( 51%) 
+#36 155.0 Downloading libsecp256k1.zip ( 51%) Downloading libsecp256k1.zip ( 51%) 
+#36 155.0 Downloading libsecp256k1.zip ( 51%) Downloading libsecp256k1.zip ( 51%) 
+#36 155.0 Downloading libsecp256k1.zip ( 51%) Downloading libsecp256k1.zip ( 51%) 
+#36 155.0 Downloading libsecp256k1.zip ( 51%) Downloading libsecp256k1.zip ( 51%) 
+#36 155.0 Downloading libsecp256k1.zip ( 51%) Downloading libsecp256k1.zip ( 51%) 
+#36 155.0 Downloading libsecp256k1.zip ( 51%) Downloading libsecp256k1.zip ( 51%) 
+#36 155.0 Downloading libsecp256k1.zip ( 51%) Downloading libsecp256k1.zip ( 51%) 
+#36 155.0 Downloading libsecp256k1.zip ( 51%) Downloading libsecp256k1.zip ( 51%) 
+#36 155.0 Downloading libsecp256k1.zip ( 52%) Downloading libsecp256k1.zip ( 52%) 
+#36 155.0 Downloading libsecp256k1.zip ( 52%) Downloading libsecp256k1.zip ( 52%) 
+#36 155.0 Downloading libsecp256k1.zip ( 52%) Downloading libsecp256k1.zip ( 52%) 
+#36 155.0 Downloading libsecp256k1.zip ( 52%) Downloading libsecp256k1.zip ( 52%) 
+#36 155.0 Downloading libsecp256k1.zip ( 52%) Downloading libsecp256k1.zip ( 52%) 
+#36 155.0 Downloading libsecp256k1.zip ( 52%) Downloading libsecp256k1.zip ( 52%) 
+#36 155.0 Downloading libsecp256k1.zip ( 52%) Downloading libsecp256k1.zip ( 52%) 
+#36 155.0 Downloading libsecp256k1.zip ( 52%) Downloading libsecp256k1.zip ( 52%) 
+#36 155.0 Downloading libsecp256k1.zip ( 52%) Downloading libsecp256k1.zip ( 52%) 
+#36 155.0 Downloading libsecp256k1.zip ( 53%) Downloading libsecp256k1.zip ( 53%) 
+#36 155.0 Downloading libsecp256k1.zip ( 53%) Downloading libsecp256k1.zip ( 53%) 
+#36 155.0 Downloading libsecp256k1.zip ( 53%) Downloading libsecp256k1.zip ( 53%) 
+#36 155.0 Downloading libsecp256k1.zip ( 53%) Downloading libsecp256k1.zip ( 53%) 
+#36 155.0 Downloading libsecp256k1.zip ( 53%) Downloading libsecp256k1.zip ( 53%) 
+#36 155.0 Downloading libsecp256k1.zip ( 53%) Downloading libsecp256k1.zip ( 53%) 
+#36 155.0 Downloading libsecp256k1.zip ( 53%) Downloading libsecp256k1.zip ( 53%) 
+#36 155.0 Downloading libsecp256k1.zip ( 53%) Downloading libsecp256k1.zip ( 53%) 
+#36 155.0 Downloading libsecp256k1.zip ( 53%) Downloading libsecp256k1.zip ( 53%) 
+#36 155.0 Downloading libsecp256k1.zip ( 53%) Downloading libsecp256k1.zip ( 53%) 
+#36 155.0 Downloading libsecp256k1.zip ( 54%) Downloading libsecp256k1.zip ( 54%) 
+#36 155.0 Downloading libsecp256k1.zip ( 54%) Downloading libsecp256k1.zip ( 54%) 
+#36 155.0 Downloading libsecp256k1.zip ( 54%) Downloading libsecp256k1.zip ( 54%) 
+#36 155.0 Downloading libsecp256k1.zip ( 54%) Downloading libsecp256k1.zip ( 54%) 
+#36 155.0 Downloading libsecp256k1.zip ( 54%) Downloading libsecp256k1.zip ( 54%) 
+#36 155.0 Downloading libsecp256k1.zip ( 54%) Downloading libsecp256k1.zip ( 54%) 
+#36 155.0 Downloading libsecp256k1.zip ( 54%) Downloading libsecp256k1.zip ( 54%) 
+#36 155.0 Downloading libsecp256k1.zip ( 54%) Downloading libsecp256k1.zip ( 54%) 
+#36 155.0 Downloading libsecp256k1.zip ( 54%) Downloading libsecp256k1.zip ( 54%) 
+#36 155.0 Downloading libsecp256k1.zip ( 55%) Downloading libsecp256k1.zip ( 55%) 
+#36 155.0 Downloading libsecp256k1.zip ( 55%) Downloading libsecp256k1.zip ( 55%) 
+#36 155.0 Downloading libsecp256k1.zip ( 55%) Downloading libsecp256k1.zip ( 55%) 
+#36 155.0 Downloading libsecp256k1.zip ( 55%) Downloading libsecp256k1.zip ( 55%) 
+#36 155.0 Downloading libsecp256k1.zip ( 55%) Downloading libsecp256k1.zip ( 55%) 
+#36 155.0 Downloading libsecp256k1.zip ( 55%) Downloading libsecp256k1.zip ( 55%) 
+#36 155.0 Downloading libsecp256k1.zip ( 55%) Downloading libsecp256k1.zip ( 55%) 
+#36 155.0 Downloading libsecp256k1.zip ( 55%) Downloading libsecp256k1.zip ( 55%) 
+#36 155.0 Downloading libsecp256k1.zip ( 55%) Downloading libsecp256k1.zip ( 55%) 
+#36 155.0 Downloading libsecp256k1.zip ( 56%) Downloading libsecp256k1.zip ( 56%) 
+#36 155.0 Downloading libsecp256k1.zip ( 56%) Downloading libsecp256k1.zip ( 56%) 
+#36 155.0 Downloading libsecp256k1.zip ( 56%) Downloading libsecp256k1.zip ( 56%) 
+#36 155.0 Downloading libsecp256k1.zip ( 56%) Downloading libsecp256k1.zip ( 56%) 
+#36 155.0 Downloading libsecp256k1.zip ( 56%) Downloading libsecp256k1.zip ( 56%) 
+#36 155.0 Downloading libsecp256k1.zip ( 56%) Downloading libsecp256k1.zip ( 56%) 
+#36 155.0 Downloading libsecp256k1.zip ( 56%) Downloading libsecp256k1.zip ( 56%) 
+#36 155.0 Downloading libsecp256k1.zip ( 56%) Downloading libsecp256k1.zip ( 56%) 
+#36 155.0 Downloading libsecp256k1.zip ( 56%) Downloading libsecp256k1.zip ( 56%) 
+#36 155.0 Downloading libsecp256k1.zip ( 56%) Downloading libsecp256k1.zip ( 57%) 
+#36 155.0 Downloading libsecp256k1.zip ( 57%) Downloading libsecp256k1.zip ( 57%) 
+#36 155.0 Downloading libsecp256k1.zip ( 57%) Downloading libsecp256k1.zip ( 57%) 
+#36 155.0 Downloading libsecp256k1.zip ( 57%) Downloading libsecp256k1.zip ( 57%) 
+#36 155.0 Downloading libsecp256k1.zip ( 57%) Downloading libsecp256k1.zip ( 57%) 
+#36 155.0 Downloading libsecp256k1.zip ( 57%) Downloading libsecp256k1.zip ( 57%) 
+#36 155.0 Downloading libsecp256k1.zip ( 57%) Downloading libsecp256k1.zip ( 57%) 
+#36 155.0 Downloading libsecp256k1.zip ( 57%) Downloading libsecp256k1.zip ( 57%) 
+#36 155.0 Downloading libsecp256k1.zip ( 57%) Downloading libsecp256k1.zip ( 57%) 
+#36 155.0 Downloading libsecp256k1.zip ( 57%) Downloading libsecp256k1.zip ( 58%) 
+#36 155.0 Downloading libsecp256k1.zip ( 58%) Downloading libsecp256k1.zip ( 58%) 
+#36 155.0 Downloading libsecp256k1.zip ( 58%) Downloading libsecp256k1.zip ( 58%) 
+#36 155.0 Downloading libsecp256k1.zip ( 58%) Downloading libsecp256k1.zip ( 58%) 
+#36 155.0 Downloading libsecp256k1.zip ( 58%) Downloading libsecp256k1.zip ( 58%) 
+#36 155.0 Downloading libsecp256k1.zip ( 58%) Downloading libsecp256k1.zip ( 58%) 
+#36 155.0 Downloading libsecp256k1.zip ( 58%) Downloading libsecp256k1.zip ( 58%) 
+#36 155.0 Downloading libsecp256k1.zip ( 58%) Downloading libsecp256k1.zip ( 58%) 
+#36 155.0 Downloading libsecp256k1.zip ( 58%) Downloading libsecp256k1.zip ( 58%) 
+#36 155.0 Downloading libsecp256k1.zip ( 58%) Downloading libsecp256k1.zip ( 58%) 
+#36 155.0 Downloading libsecp256k1.zip ( 58%) Downloading libsecp256k1.zip ( 59%) 
+#36 155.0 Downloading libsecp256k1.zip ( 59%) Downloading libsecp256k1.zip ( 59%) 
+#36 155.0 Downloading libsecp256k1.zip ( 59%) Downloading libsecp256k1.zip ( 59%) 
+#36 155.0 Downloading libsecp256k1.zip ( 59%) Downloading libsecp256k1.zip ( 59%) 
+#36 155.0 Downloading libsecp256k1.zip ( 59%) Downloading libsecp256k1.zip ( 59%) 
+#36 155.0 Downloading libsecp256k1.zip ( 59%) Downloading libsecp256k1.zip ( 59%) 
+#36 155.0 Downloading libsecp256k1.zip ( 59%) Downloading libsecp256k1.zip ( 59%) 
+#36 155.0 Downloading libsecp256k1.zip ( 59%) Downloading libsecp256k1.zip ( 59%) 
+#36 155.0 Downloading libsecp256k1.zip ( 59%) Downloading libsecp256k1.zip ( 59%) 
+#36 155.0 Downloading libsecp256k1.zip ( 59%) Downloading libsecp256k1.zip ( 60%) 
+#36 155.0 Downloading libsecp256k1.zip ( 60%) Downloading libsecp256k1.zip ( 60%) 
+#36 155.0 Downloading libsecp256k1.zip ( 60%) Downloading libsecp256k1.zip ( 60%) 
+#36 155.0 Downloading libsecp256k1.zip ( 60%) Downloading libsecp256k1.zip ( 60%) 
+#36 155.0 Downloading libsecp256k1.zip ( 60%) Downloading libsecp256k1.zip ( 60%) 
+#36 155.0 Downloading libsecp256k1.zip ( 60%) Downloading libsecp256k1.zip ( 60%) 
+#36 155.0 Downloading libsecp256k1.zip ( 60%) Downloading libsecp256k1.zip ( 60%) 
+#36 155.0 Downloading libsecp256k1.zip ( 60%) Downloading libsecp256k1.zip ( 60%) 
+#36 155.0 Downloading libsecp256k1.zip ( 60%) Downloading libsecp256k1.zip ( 60%) 
+#36 155.0 Downloading libsecp256k1.zip ( 60%) Downloading libsecp256k1.zip ( 61%) 
+#36 155.0 Downloading libsecp256k1.zip ( 61%) Downloading libsecp256k1.zip ( 61%) 
+#36 155.0 Downloading libsecp256k1.zip ( 61%) Downloading libsecp256k1.zip ( 61%) 
+#36 155.0 Downloading libsecp256k1.zip ( 61%) Downloading libsecp256k1.zip ( 61%) 
+#36 155.0 Downloading libsecp256k1.zip ( 61%) Downloading libsecp256k1.zip ( 61%) 
+#36 155.0 Downloading libsecp256k1.zip ( 61%) Downloading libsecp256k1.zip ( 61%) 
+#36 155.0 Downloading libsecp256k1.zip ( 61%) Downloading libsecp256k1.zip ( 61%) 
+#36 155.0 Downloading libsecp256k1.zip ( 61%) Downloading libsecp256k1.zip ( 61%) 
+#36 155.0 Downloading libsecp256k1.zip ( 61%) Downloading libsecp256k1.zip ( 61%) 
+#36 155.0 Downloading libsecp256k1.zip ( 61%) Downloading libsecp256k1.zip ( 61%) 
+#36 155.0 Downloading libsecp256k1.zip ( 61%) Downloading libsecp256k1.zip ( 62%) 
+#36 155.0 Downloading libsecp256k1.zip ( 62%) Downloading libsecp256k1.zip ( 62%) 
+#36 155.0 Downloading libsecp256k1.zip ( 62%) Downloading libsecp256k1.zip ( 62%) 
+#36 155.0 Downloading libsecp256k1.zip ( 62%) Downloading libsecp256k1.zip ( 62%) 
+#36 155.0 Downloading libsecp256k1.zip ( 62%) Downloading libsecp256k1.zip ( 62%) 
+#36 155.0 Downloading libsecp256k1.zip ( 62%) Downloading libsecp256k1.zip ( 62%) 
+#36 155.0 Downloading libsecp256k1.zip ( 62%) Downloading libsecp256k1.zip ( 62%) 
+#36 155.0 Downloading libsecp256k1.zip ( 62%) Downloading libsecp256k1.zip ( 62%) 
+#36 155.0 Downloading libsecp256k1.zip ( 62%) Downloading libsecp256k1.zip ( 62%) 
+#36 155.0 Downloading libsecp256k1.zip ( 62%) Downloading libsecp256k1.zip ( 63%) 
+#36 155.0 Downloading libsecp256k1.zip ( 63%) Downloading libsecp256k1.zip ( 63%) 
+#36 155.0 Downloading libsecp256k1.zip ( 63%) Downloading libsecp256k1.zip ( 63%) 
+#36 155.0 Downloading libsecp256k1.zip ( 63%) Downloading libsecp256k1.zip ( 63%) 
+#36 155.0 Downloading libsecp256k1.zip ( 63%) Downloading libsecp256k1.zip ( 63%) 
+#36 155.0 Downloading libsecp256k1.zip ( 63%) Downloading libsecp256k1.zip ( 63%) 
+#36 155.0 Downloading libsecp256k1.zip ( 63%) Downloading libsecp256k1.zip ( 63%) 
+#36 155.0 Downloading libsecp256k1.zip ( 63%) Downloading libsecp256k1.zip ( 63%) 
+#36 155.0 Downloading libsecp256k1.zip ( 63%) Downloading libsecp256k1.zip ( 63%) 
+#36 155.0 Downloading libsecp256k1.zip ( 63%) Downloading libsecp256k1.zip ( 63%) 
+#36 155.0 Downloading libsecp256k1.zip ( 64%) Downloading libsecp256k1.zip ( 64%) 
+#36 155.0 Downloading libsecp256k1.zip ( 64%) Downloading libsecp256k1.zip ( 64%) 
+#36 155.0 Downloading libsecp256k1.zip ( 64%) Downloading libsecp256k1.zip ( 64%) 
+#36 155.0 Downloading libsecp256k1.zip ( 64%) Downloading libsecp256k1.zip ( 64%) 
+#36 155.0 Downloading libsecp256k1.zip ( 64%) Downloading libsecp256k1.zip ( 64%) 
+#36 155.0 Downloading libsecp256k1.zip ( 64%) Downloading libsecp256k1.zip ( 64%) 
+#36 155.0 Downloading libsecp256k1.zip ( 64%) Downloading libsecp256k1.zip ( 64%) 
+#36 155.0 Downloading libsecp256k1.zip ( 64%) Downloading libsecp256k1.zip ( 64%) 
+#36 155.0 Downloading libsecp256k1.zip ( 64%) Downloading libsecp256k1.zip ( 64%) 
+#36 155.0 Downloading libsecp256k1.zip ( 64%) Downloading libsecp256k1.zip ( 65%) 
+#36 155.0 Downloading libsecp256k1.zip ( 65%) Downloading libsecp256k1.zip ( 65%) 
+#36 155.0 Downloading libsecp256k1.zip ( 65%) Downloading libsecp256k1.zip ( 65%) 
+#36 155.0 Downloading libsecp256k1.zip ( 65%) Downloading libsecp256k1.zip ( 65%) 
+#36 155.0 Downloading libsecp256k1.zip ( 65%) Downloading libsecp256k1.zip ( 65%) 
+#36 155.0 Downloading libsecp256k1.zip ( 65%) Downloading libsecp256k1.zip ( 65%) 
+#36 155.0 Downloading libsecp256k1.zip ( 65%) Downloading libsecp256k1.zip ( 65%) 
+#36 155.0 Downloading libsecp256k1.zip ( 65%) Downloading libsecp256k1.zip ( 65%) 
+#36 155.0 Downloading libsecp256k1.zip ( 65%) Downloading libsecp256k1.zip ( 65%) 
+#36 155.0 Downloading libsecp256k1.zip ( 65%) Downloading libsecp256k1.zip ( 66%) 
+#36 155.0 Downloading libsecp256k1.zip ( 66%) Downloading libsecp256k1.zip ( 66%) 
+#36 155.0 Downloading libsecp256k1.zip ( 66%) Downloading libsecp256k1.zip ( 66%) 
+#36 155.0 Downloading libsecp256k1.zip ( 66%) Downloading libsecp256k1.zip ( 66%) 
+#36 155.0 Downloading libsecp256k1.zip ( 66%) Downloading libsecp256k1.zip ( 66%) 
+#36 155.0 Downloading libsecp256k1.zip ( 66%) Downloading libsecp256k1.zip ( 66%) 
+#36 155.0 Downloading libsecp256k1.zip ( 66%) Downloading libsecp256k1.zip ( 66%) 
+#36 155.0 Downloading libsecp256k1.zip ( 66%) Downloading libsecp256k1.zip ( 66%) 
+#36 155.0 Downloading libsecp256k1.zip ( 66%) Downloading libsecp256k1.zip ( 66%) 
+#36 155.0 Downloading libsecp256k1.zip ( 66%) Downloading libsecp256k1.zip ( 66%) 
+#36 155.0 Downloading libsecp256k1.zip ( 67%) Downloading libsecp256k1.zip ( 67%) 
+#36 155.0 Downloading libsecp256k1.zip ( 67%) Downloading libsecp256k1.zip ( 67%) 
+#36 155.0 Downloading libsecp256k1.zip ( 67%) Downloading libsecp256k1.zip ( 67%) 
+#36 155.0 Downloading libsecp256k1.zip ( 67%) Downloading libsecp256k1.zip ( 67%) 
+#36 155.0 Downloading libsecp256k1.zip ( 67%) Downloading libsecp256k1.zip ( 67%) 
+#36 155.0 Downloading libsecp256k1.zip ( 67%) Downloading libsecp256k1.zip ( 67%) 
+#36 155.0 Downloading libsecp256k1.zip ( 67%) Downloading libsecp256k1.zip ( 67%) 
+#36 155.0 Downloading libsecp256k1.zip ( 67%) Downloading libsecp256k1.zip ( 67%) 
+#36 155.0 Downloading libsecp256k1.zip ( 67%) Downloading libsecp256k1.zip ( 67%) 
+#36 155.0 Downloading libsecp256k1.zip ( 67%) Downloading libsecp256k1.zip ( 68%) 
+#36 155.0 Downloading libsecp256k1.zip ( 68%) Downloading libsecp256k1.zip ( 68%) 
+#36 155.0 Downloading libsecp256k1.zip ( 68%) Downloading libsecp256k1.zip ( 68%) 
+#36 155.0 Downloading libsecp256k1.zip ( 68%) Downloading libsecp256k1.zip ( 68%) 
+#36 155.0 Downloading libsecp256k1.zip ( 68%) Downloading libsecp256k1.zip ( 68%) 
+#36 155.0 Downloading libsecp256k1.zip ( 68%) Downloading libsecp256k1.zip ( 68%) 
+#36 155.0 Downloading libsecp256k1.zip ( 68%) Downloading libsecp256k1.zip ( 68%) 
+#36 155.0 Downloading libsecp256k1.zip ( 68%) Downloading libsecp256k1.zip ( 68%) 
+#36 155.0 Downloading libsecp256k1.zip ( 68%) Downloading libsecp256k1.zip ( 68%) 
+#36 155.0 Downloading libsecp256k1.zip ( 68%) Downloading libsecp256k1.zip ( 69%) 
+#36 155.0 Downloading libsecp256k1.zip ( 69%) Downloading libsecp256k1.zip ( 69%) 
+#36 155.0 Downloading libsecp256k1.zip ( 69%) Downloading libsecp256k1.zip ( 69%) 
+#36 155.0 Downloading libsecp256k1.zip ( 69%) Downloading libsecp256k1.zip ( 69%) 
+#36 155.0 Downloading libsecp256k1.zip ( 69%) Downloading libsecp256k1.zip ( 69%) 
+#36 155.0 Downloading libsecp256k1.zip ( 69%) Downloading libsecp256k1.zip ( 69%) 
+#36 155.0 Downloading libsecp256k1.zip ( 69%) Downloading libsecp256k1.zip ( 69%) 
+#36 155.0 Downloading libsecp256k1.zip ( 69%) Downloading libsecp256k1.zip ( 69%) 
+#36 155.0 Downloading libsecp256k1.zip ( 69%) Downloading libsecp256k1.zip ( 69%) 
+#36 155.0 Downloading libsecp256k1.zip ( 69%) Downloading libsecp256k1.zip ( 70%) 
+#36 155.0 Downloading libsecp256k1.zip ( 70%) Downloading libsecp256k1.zip ( 70%) 
+#36 155.0 Downloading libsecp256k1.zip ( 70%) Downloading libsecp256k1.zip ( 70%) 
+#36 155.0 Downloading libsecp256k1.zip ( 70%) Downloading libsecp256k1.zip ( 70%) 
+#36 155.0 Downloading libsecp256k1.zip ( 70%) Downloading libsecp256k1.zip ( 70%) 
+#36 155.0 Downloading libsecp256k1.zip ( 70%) Downloading libsecp256k1.zip ( 70%) 
+#36 155.0 Downloading libsecp256k1.zip ( 70%) Downloading libsecp256k1.zip ( 70%) 
+#36 155.0 Downloading libsecp256k1.zip ( 70%) Downloading libsecp256k1.zip ( 70%) 
+#36 155.0 Downloading libsecp256k1.zip ( 70%) Downloading libsecp256k1.zip ( 70%) 
+#36 155.0 Downloading libsecp256k1.zip ( 70%) Downloading libsecp256k1.zip ( 70%) 
+#36 155.0 Downloading libsecp256k1.zip ( 70%) Downloading libsecp256k1.zip ( 71%) 
+#36 155.0 Downloading libsecp256k1.zip ( 71%) Downloading libsecp256k1.zip ( 71%) 
+#36 155.0 Downloading libsecp256k1.zip ( 71%) Downloading libsecp256k1.zip ( 71%) 
+#36 155.0 Downloading libsecp256k1.zip ( 71%) Downloading libsecp256k1.zip ( 71%) 
+#36 155.0 Downloading libsecp256k1.zip ( 71%) Downloading libsecp256k1.zip ( 71%) 
+#36 155.0 Downloading libsecp256k1.zip ( 71%) Downloading libsecp256k1.zip ( 71%) 
+#36 155.0 Downloading libsecp256k1.zip ( 71%) Downloading libsecp256k1.zip ( 71%) 
+#36 155.0 Downloading libsecp256k1.zip ( 71%) Downloading libsecp256k1.zip ( 71%) 
+#36 155.0 Downloading libsecp256k1.zip ( 71%) Downloading libsecp256k1.zip ( 71%) 
+#36 155.0 Downloading libsecp256k1.zip ( 71%) Downloading libsecp256k1.zip ( 72%) 
+#36 155.0 Downloading libsecp256k1.zip ( 72%) Downloading libsecp256k1.zip ( 72%) 
+#36 155.0 Downloading libsecp256k1.zip ( 72%) Downloading libsecp256k1.zip ( 72%) 
+#36 155.0 Downloading libsecp256k1.zip ( 72%) Downloading libsecp256k1.zip ( 72%) 
+#36 155.0 Downloading libsecp256k1.zip ( 72%) Downloading libsecp256k1.zip ( 72%) 
+#36 155.0 Downloading libsecp256k1.zip ( 72%) Downloading libsecp256k1.zip ( 72%) 
+#36 155.0 Downloading libsecp256k1.zip ( 72%) Downloading libsecp256k1.zip ( 72%) 
+#36 155.0 Downloading libsecp256k1.zip ( 72%) Downloading libsecp256k1.zip ( 72%) 
+#36 155.0 Downloading libsecp256k1.zip ( 72%) Downloading libsecp256k1.zip ( 72%) 
+#36 155.0 Downloading libsecp256k1.zip ( 72%) Downloading libsecp256k1.zip ( 73%) 
+#36 155.0 Downloading libsecp256k1.zip ( 73%) Downloading libsecp256k1.zip ( 73%) 
+#36 155.0 Downloading libsecp256k1.zip ( 73%) Downloading libsecp256k1.zip ( 73%) 
+#36 155.0 Downloading libsecp256k1.zip ( 73%) Downloading libsecp256k1.zip ( 73%) 
+#36 155.0 Downloading libsecp256k1.zip ( 73%) Downloading libsecp256k1.zip ( 73%) 
+#36 155.0 Downloading libsecp256k1.zip ( 73%) Downloading libsecp256k1.zip ( 73%) 
+#36 155.0 Downloading libsecp256k1.zip ( 73%) Downloading libsecp256k1.zip ( 73%) 
+#36 155.0 Downloading libsecp256k1.zip ( 73%) Downloading libsecp256k1.zip ( 73%) 
+#36 155.0 Downloading libsecp256k1.zip ( 73%) Downloading libsecp256k1.zip ( 73%) 
+#36 155.0 Downloading libsecp256k1.zip ( 73%) Downloading libsecp256k1.zip ( 73%) 
+#36 155.0 Downloading libsecp256k1.zip ( 73%) Downloading libsecp256k1.zip ( 74%) 
+#36 155.0 Downloading libsecp256k1.zip ( 74%) Downloading libsecp256k1.zip ( 74%) 
+#36 155.0 Downloading libsecp256k1.zip ( 74%) Downloading libsecp256k1.zip ( 74%) 
+#36 155.0 Downloading libsecp256k1.zip ( 74%) Downloading libsecp256k1.zip ( 74%) 
+#36 155.0 Downloading libsecp256k1.zip ( 74%) Downloading libsecp256k1.zip ( 74%) 
+#36 155.0 Downloading libsecp256k1.zip ( 74%) Downloading libsecp256k1.zip ( 74%) 
+#36 155.0 Downloading libsecp256k1.zip ( 74%) Downloading libsecp256k1.zip ( 74%) 
+#36 155.0 Downloading libsecp256k1.zip ( 74%) Downloading libsecp256k1.zip ( 74%) 
+#36 155.0 Downloading libsecp256k1.zip ( 74%) Downloading libsecp256k1.zip ( 74%) 
+#36 155.0 Downloading libsecp256k1.zip ( 74%) Downloading libsecp256k1.zip ( 75%) 
+#36 155.0 Downloading libsecp256k1.zip ( 75%) Downloading libsecp256k1.zip ( 75%) 
+#36 155.0 Downloading libsecp256k1.zip ( 75%) Downloading libsecp256k1.zip ( 75%) 
+#36 155.0 Downloading libsecp256k1.zip ( 75%) Downloading libsecp256k1.zip ( 75%) 
+#36 155.0 Downloading libsecp256k1.zip ( 75%) Downloading libsecp256k1.zip ( 75%) 
+#36 155.0 Downloading libsecp256k1.zip ( 75%) Downloading libsecp256k1.zip ( 75%) 
+#36 155.0 Downloading libsecp256k1.zip ( 75%) Downloading libsecp256k1.zip ( 75%) 
+#36 155.0 Downloading libsecp256k1.zip ( 75%) Downloading libsecp256k1.zip ( 75%) 
+#36 155.0 Downloading libsecp256k1.zip ( 75%) Downloading libsecp256k1.zip ( 75%) 
+#36 155.0 Downloading libsecp256k1.zip ( 75%) Downloading libsecp256k1.zip ( 75%) 
+#36 155.0 Downloading libsecp256k1.zip ( 76%) Downloading libsecp256k1.zip ( 76%) 
+#36 155.0 Downloading libsecp256k1.zip ( 76%) Downloading libsecp256k1.zip ( 76%) 
+#36 155.0 Downloading libsecp256k1.zip ( 76%) Downloading libsecp256k1.zip ( 76%) 
+#36 155.0 Downloading libsecp256k1.zip ( 76%) Downloading libsecp256k1.zip ( 76%) 
+#36 155.0 Downloading libsecp256k1.zip ( 76%) Downloading libsecp256k1.zip ( 76%) 
+#36 155.0 Downloading libsecp256k1.zip ( 76%) Downloading libsecp256k1.zip ( 76%) 
+#36 155.0 Downloading libsecp256k1.zip ( 76%) Downloading libsecp256k1.zip ( 76%) 
+#36 155.0 Downloading libsecp256k1.zip ( 76%) Downloading libsecp256k1.zip ( 76%) 
+#36 155.0 Downloading libsecp256k1.zip ( 76%) Downloading libsecp256k1.zip ( 76%) 
+#36 155.0 Downloading libsecp256k1.zip ( 76%) Downloading libsecp256k1.zip ( 77%) 
+#36 155.0 Downloading libsecp256k1.zip ( 77%) Downloading libsecp256k1.zip ( 77%) 
+#36 155.0 Downloading libsecp256k1.zip ( 77%) Downloading libsecp256k1.zip ( 77%) 
+#36 155.0 Downloading libsecp256k1.zip ( 77%) Downloading libsecp256k1.zip ( 77%) 
+#36 155.0 Downloading libsecp256k1.zip ( 77%) Downloading libsecp256k1.zip ( 77%) 
+#36 155.0 Downloading libsecp256k1.zip ( 77%) Downloading libsecp256k1.zip ( 77%) 
+#36 155.0 Downloading libsecp256k1.zip ( 77%) Downloading libsecp256k1.zip ( 77%) 
+#36 155.0 Downloading libsecp256k1.zip ( 77%) Downloading libsecp256k1.zip ( 77%) 
+#36 155.0 Downloading libsecp256k1.zip ( 77%) Downloading libsecp256k1.zip ( 77%) 
+#36 155.0 Downloading libsecp256k1.zip ( 77%) Downloading libsecp256k1.zip ( 78%) 
+#36 155.0 Downloading libsecp256k1.zip ( 78%) Downloading libsecp256k1.zip ( 78%) 
+#36 155.0 Downloading libsecp256k1.zip ( 78%) Downloading libsecp256k1.zip ( 78%) 
+#36 155.0 Downloading libsecp256k1.zip ( 78%) Downloading libsecp256k1.zip ( 78%) 
+#36 155.0 Downloading libsecp256k1.zip ( 78%) Downloading libsecp256k1.zip ( 78%) 
+#36 155.0 Downloading libsecp256k1.zip ( 78%) Downloading libsecp256k1.zip ( 78%) 
+#36 155.0 Downloading libsecp256k1.zip ( 78%) Downloading libsecp256k1.zip ( 78%) 
+#36 155.0 Downloading libsecp256k1.zip ( 78%) Downloading libsecp256k1.zip ( 78%) 
+#36 155.0 Downloading libsecp256k1.zip ( 78%) Downloading libsecp256k1.zip ( 78%) 
+#36 155.0 Downloading libsecp256k1.zip ( 78%) Downloading libsecp256k1.zip ( 78%) 
+#36 155.0 Downloading libsecp256k1.zip ( 79%) Downloading libsecp256k1.zip ( 79%) 
+#36 155.0 Downloading libsecp256k1.zip ( 79%) Downloading libsecp256k1.zip ( 79%) 
+#36 155.0 Downloading libsecp256k1.zip ( 79%) Downloading libsecp256k1.zip ( 79%) 
+#36 155.0 Downloading libsecp256k1.zip ( 79%) Downloading libsecp256k1.zip ( 79%) 
+#36 155.0 Downloading libsecp256k1.zip ( 79%) Downloading libsecp256k1.zip ( 79%) 
+#36 155.0 Downloading libsecp256k1.zip ( 79%) Downloading libsecp256k1.zip ( 79%) 
+#36 155.0 Downloading libsecp256k1.zip ( 79%) Downloading libsecp256k1.zip ( 79%) 
+#36 155.0 Downloading libsecp256k1.zip ( 79%) Downloading libsecp256k1.zip ( 79%) 
+#36 155.0 Downloading libsecp256k1.zip ( 79%) Downloading libsecp256k1.zip ( 79%) 
+#36 155.0 Downloading libsecp256k1.zip ( 79%) Downloading libsecp256k1.zip ( 80%) 
+#36 155.0 Downloading libsecp256k1.zip ( 80%) Downloading libsecp256k1.zip ( 80%) 
+#36 155.0 Downloading libsecp256k1.zip ( 80%) Downloading libsecp256k1.zip ( 80%) 
+#36 155.0 Downloading libsecp256k1.zip ( 80%) Downloading libsecp256k1.zip ( 80%) 
+#36 155.0 Downloading libsecp256k1.zip ( 80%) Downloading libsecp256k1.zip ( 80%) 
+#36 155.0 Downloading libsecp256k1.zip ( 80%) Downloading libsecp256k1.zip ( 80%) 
+#36 155.0 Downloading libsecp256k1.zip ( 80%) Downloading libsecp256k1.zip ( 80%) 
+#36 155.0 Downloading libsecp256k1.zip ( 80%) Downloading libsecp256k1.zip ( 80%) 
+#36 155.0 Downloading libsecp256k1.zip ( 80%) Downloading libsecp256k1.zip ( 80%) 
+#36 155.0 Downloading libsecp256k1.zip ( 80%) Downloading libsecp256k1.zip ( 81%) 
+#36 155.0 Downloading libsecp256k1.zip ( 81%) Downloading libsecp256k1.zip ( 81%) 
+#36 155.0 Downloading libsecp256k1.zip ( 81%) Downloading libsecp256k1.zip ( 81%) 
+#36 155.0 Downloading libsecp256k1.zip ( 81%) Downloading libsecp256k1.zip ( 81%) 
+#36 155.0 Downloading libsecp256k1.zip ( 81%) Downloading libsecp256k1.zip ( 81%) 
+#36 155.0 Downloading libsecp256k1.zip ( 81%) Downloading libsecp256k1.zip ( 81%) 
+#36 155.0 Downloading libsecp256k1.zip ( 81%) Downloading libsecp256k1.zip ( 81%) 
+#36 155.0 Downloading libsecp256k1.zip ( 81%) Downloading libsecp256k1.zip ( 81%) 
+#36 155.0 Downloading libsecp256k1.zip ( 81%) Downloading libsecp256k1.zip ( 81%) 
+#36 155.0 Downloading libsecp256k1.zip ( 81%) Downloading libsecp256k1.zip ( 81%) 
+#36 155.0 Downloading libsecp256k1.zip ( 82%) Downloading libsecp256k1.zip ( 82%) 
+#36 155.0 Downloading libsecp256k1.zip ( 82%) Downloading libsecp256k1.zip ( 82%) 
+#36 155.0 Downloading libsecp256k1.zip ( 82%) Downloading libsecp256k1.zip ( 82%) 
+#36 155.0 Downloading libsecp256k1.zip ( 82%) Downloading libsecp256k1.zip ( 82%) 
+#36 155.0 Downloading libsecp256k1.zip ( 82%) Downloading libsecp256k1.zip ( 82%) 
+#36 155.0 Downloading libsecp256k1.zip ( 82%) Downloading libsecp256k1.zip ( 82%) 
+#36 155.0 Downloading libsecp256k1.zip ( 82%) Downloading libsecp256k1.zip ( 82%) 
+#36 155.0 Downloading libsecp256k1.zip ( 82%) Downloading libsecp256k1.zip ( 82%) 
+#36 155.0 Downloading libsecp256k1.zip ( 82%) Downloading libsecp256k1.zip ( 82%) 
+#36 155.0 Downloading libsecp256k1.zip ( 82%) Downloading libsecp256k1.zip ( 83%) 
+#36 155.0 Downloading libsecp256k1.zip ( 83%) Downloading libsecp256k1.zip ( 83%) 
+#36 155.0 Downloading libsecp256k1.zip ( 83%) Downloading libsecp256k1.zip ( 83%) 
+#36 155.0 Downloading libsecp256k1.zip ( 83%) Downloading libsecp256k1.zip ( 83%) 
+#36 155.0 Downloading libsecp256k1.zip ( 83%) Downloading libsecp256k1.zip ( 83%) 
+#36 155.0 Downloading libsecp256k1.zip ( 83%) Downloading libsecp256k1.zip ( 83%) 
+#36 155.0 Downloading libsecp256k1.zip ( 83%) Downloading libsecp256k1.zip ( 83%) 
+#36 155.0 Downloading libsecp256k1.zip ( 83%) Downloading libsecp256k1.zip ( 83%) 
+#36 155.0 Downloading libsecp256k1.zip ( 83%) Downloading libsecp256k1.zip ( 83%) 
+#36 155.0 Downloading libsecp256k1.zip ( 83%) Downloading libsecp256k1.zip ( 84%) 
+#36 155.0 Downloading libsecp256k1.zip ( 84%) Downloading libsecp256k1.zip ( 84%) 
+#36 155.0 Downloading libsecp256k1.zip ( 84%) Downloading libsecp256k1.zip ( 84%) 
+#36 155.0 Downloading libsecp256k1.zip ( 84%) Downloading libsecp256k1.zip ( 84%) 
+#36 155.0 Downloading libsecp256k1.zip ( 84%) Downloading libsecp256k1.zip ( 84%) 
+#36 155.0 Downloading libsecp256k1.zip ( 84%) Downloading libsecp256k1.zip ( 84%) 
+#36 155.0 Downloading libsecp256k1.zip ( 84%) Downloading libsecp256k1.zip ( 84%) 
+#36 155.0 Downloading libsecp256k1.zip ( 84%) Downloading libsecp256k1.zip ( 84%) 
+#36 155.0 Downloading libsecp256k1.zip ( 84%) Downloading libsecp256k1.zip ( 84%) 
+#36 155.0 Downloading libsecp256k1.zip ( 84%) Downloading libsecp256k1.zip ( 84%) 
+#36 155.0 Downloading libsecp256k1.zip ( 84%) Downloading libsecp256k1.zip ( 85%) 
+#36 155.0 Downloading libsecp256k1.zip ( 85%) Downloading libsecp256k1.zip ( 85%) 
+#36 155.0 Downloading libsecp256k1.zip ( 85%) Downloading libsecp256k1.zip ( 85%) 
+#36 155.0 Downloading libsecp256k1.zip ( 85%) Downloading libsecp256k1.zip ( 85%) 
+#36 155.0 Downloading libsecp256k1.zip ( 85%) Downloading libsecp256k1.zip ( 85%) 
+#36 155.0 Downloading libsecp256k1.zip ( 85%) Downloading libsecp256k1.zip ( 85%) 
+#36 155.0 Downloading libsecp256k1.zip ( 85%) Downloading libsecp256k1.zip ( 85%) 
+#36 155.0 Downloading libsecp256k1.zip ( 85%) Downloading libsecp256k1.zip ( 85%) 
+#36 155.0 Downloading libsecp256k1.zip ( 85%) Downloading libsecp256k1.zip ( 85%) 
+#36 155.0 Downloading libsecp256k1.zip ( 85%) Downloading libsecp256k1.zip ( 86%) 
+#36 155.0 Downloading libsecp256k1.zip ( 86%) Downloading libsecp256k1.zip ( 86%) 
+#36 155.0 Downloading libsecp256k1.zip ( 86%) Downloading libsecp256k1.zip ( 86%) 
+#36 155.0 Downloading libsecp256k1.zip ( 86%) Downloading libsecp256k1.zip ( 86%) 
+#36 155.0 Downloading libsecp256k1.zip ( 86%) Downloading libsecp256k1.zip ( 86%) 
+#36 155.0 Downloading libsecp256k1.zip ( 86%) Downloading libsecp256k1.zip ( 86%) 
+#36 155.0 Downloading libsecp256k1.zip ( 86%) Downloading libsecp256k1.zip ( 86%) 
+#36 155.0 Downloading libsecp256k1.zip ( 86%) Downloading libsecp256k1.zip ( 86%) 
+#36 155.0 Downloading libsecp256k1.zip ( 86%) Downloading libsecp256k1.zip ( 86%) 
+#36 155.0 Downloading libsecp256k1.zip ( 86%) Downloading libsecp256k1.zip ( 87%) 
+#36 155.0 Downloading libsecp256k1.zip ( 87%) Downloading libsecp256k1.zip ( 87%) 
+#36 155.0 Downloading libsecp256k1.zip ( 87%) Downloading libsecp256k1.zip ( 87%) 
+#36 155.0 Downloading libsecp256k1.zip ( 87%) Downloading libsecp256k1.zip ( 87%) 
+#36 155.0 Downloading libsecp256k1.zip ( 87%) Downloading libsecp256k1.zip ( 87%) 
+#36 155.0 Downloading libsecp256k1.zip ( 87%) Downloading libsecp256k1.zip ( 87%) 
+#36 155.0 Downloading libsecp256k1.zip ( 87%) Downloading libsecp256k1.zip ( 87%) 
+#36 155.0 Downloading libsecp256k1.zip ( 87%) Downloading libsecp256k1.zip ( 87%) 
+#36 155.0 Downloading libsecp256k1.zip ( 87%) Downloading libsecp256k1.zip ( 87%) 
+#36 155.0 Downloading libsecp256k1.zip ( 87%) Downloading libsecp256k1.zip ( 87%) 
+#36 155.0 Downloading libsecp256k1.zip ( 87%) Downloading libsecp256k1.zip ( 88%) 
+#36 155.0 Downloading libsecp256k1.zip ( 88%) Downloading libsecp256k1.zip ( 88%) 
+#36 155.0 Downloading libsecp256k1.zip ( 88%) Downloading libsecp256k1.zip ( 88%) 
+#36 155.0 Downloading libsecp256k1.zip ( 88%) Downloading libsecp256k1.zip ( 88%) 
+#36 155.0 Downloading libsecp256k1.zip ( 88%) Downloading libsecp256k1.zip ( 88%) 
+#36 155.0 Downloading libsecp256k1.zip ( 88%) Downloading libsecp256k1.zip ( 88%) 
+#36 155.0 Downloading libsecp256k1.zip ( 88%) Downloading libsecp256k1.zip ( 88%) 
+#36 155.0 Downloading libsecp256k1.zip ( 88%) Downloading libsecp256k1.zip ( 88%) 
+#36 155.0 Downloading libsecp256k1.zip ( 88%) Downloading libsecp256k1.zip ( 88%) 
+#36 155.0 Downloading libsecp256k1.zip ( 88%) Downloading libsecp256k1.zip ( 89%) 
+#36 155.0 Downloading libsecp256k1.zip ( 89%) Downloading libsecp256k1.zip ( 89%) 
+#36 155.0 Downloading libsecp256k1.zip ( 89%) Downloading libsecp256k1.zip ( 89%) 
+#36 155.0 Downloading libsecp256k1.zip ( 89%) Downloading libsecp256k1.zip ( 89%) 
+#36 155.0 Downloading libsecp256k1.zip ( 89%) Downloading libsecp256k1.zip ( 89%) 
+#36 155.0 Downloading libsecp256k1.zip ( 89%) Downloading libsecp256k1.zip ( 89%) 
+#36 155.0 Downloading libsecp256k1.zip ( 89%) Downloading libsecp256k1.zip ( 89%) 
+#36 155.0 Downloading libsecp256k1.zip ( 89%) Downloading libsecp256k1.zip ( 89%) 
+#36 155.0 Downloading libsecp256k1.zip ( 89%) Downloading libsecp256k1.zip ( 89%) 
+#36 155.0 Downloading libsecp256k1.zip ( 89%) Downloading libsecp256k1.zip ( 90%) 
+#36 155.0 Downloading libsecp256k1.zip ( 90%) Downloading libsecp256k1.zip ( 90%) 
+#36 155.0 Downloading libsecp256k1.zip ( 90%) Downloading libsecp256k1.zip ( 90%) 
+#36 155.0 Downloading libsecp256k1.zip ( 90%) Downloading libsecp256k1.zip ( 90%) 
+#36 155.0 Downloading libsecp256k1.zip ( 90%) Downloading libsecp256k1.zip ( 90%) 
+#36 155.0 Downloading libsecp256k1.zip ( 90%) Downloading libsecp256k1.zip ( 90%) 
+#36 155.0 Downloading libsecp256k1.zip ( 90%) Downloading libsecp256k1.zip ( 90%) 
+#36 155.0 Downloading libsecp256k1.zip ( 90%) Downloading libsecp256k1.zip ( 90%) 
+#36 155.0 Downloading libsecp256k1.zip ( 90%) Downloading libsecp256k1.zip ( 90%) 
+#36 155.0 Downloading libsecp256k1.zip ( 90%) Downloading libsecp256k1.zip ( 90%) 
+#36 155.0 Downloading libsecp256k1.zip ( 90%) Downloading libsecp256k1.zip ( 91%) 
+#36 155.0 Downloading libsecp256k1.zip ( 91%) Downloading libsecp256k1.zip ( 91%) 
+#36 155.0 Downloading libsecp256k1.zip ( 91%) Downloading libsecp256k1.zip ( 91%) 
+#36 155.0 Downloading libsecp256k1.zip ( 91%) Downloading libsecp256k1.zip ( 91%) 
+#36 155.0 Downloading libsecp256k1.zip ( 91%) Downloading libsecp256k1.zip ( 91%) 
+#36 155.0 Downloading libsecp256k1.zip ( 91%) Downloading libsecp256k1.zip ( 91%) 
+#36 155.0 Downloading libsecp256k1.zip ( 91%) Downloading libsecp256k1.zip ( 91%) 
+#36 155.0 Downloading libsecp256k1.zip ( 91%) Downloading libsecp256k1.zip ( 91%) 
+#36 155.0 Downloading libsecp256k1.zip ( 91%) Downloading libsecp256k1.zip ( 91%) 
+#36 155.0 Downloading libsecp256k1.zip ( 91%) Downloading libsecp256k1.zip ( 92%) 
+#36 155.0 Downloading libsecp256k1.zip ( 92%) Downloading libsecp256k1.zip ( 92%) 
+#36 155.0 Downloading libsecp256k1.zip ( 92%) Downloading libsecp256k1.zip ( 92%) 
+#36 155.0 Downloading libsecp256k1.zip ( 92%) Downloading libsecp256k1.zip ( 92%) 
+#36 155.0 Downloading libsecp256k1.zip ( 92%) Downloading libsecp256k1.zip ( 92%) 
+#36 155.0 Downloading libsecp256k1.zip ( 92%) Downloading libsecp256k1.zip ( 92%) 
+#36 155.0 Downloading libsecp256k1.zip ( 92%) Downloading libsecp256k1.zip ( 92%) 
+#36 155.0 Downloading libsecp256k1.zip ( 92%) Downloading libsecp256k1.zip ( 92%) 
+#36 155.0 Downloading libsecp256k1.zip ( 92%) Downloading libsecp256k1.zip ( 92%) 
+#36 155.0 Downloading libsecp256k1.zip ( 92%) Downloading libsecp256k1.zip ( 93%) 
+#36 155.0 Downloading libsecp256k1.zip ( 93%) Downloading libsecp256k1.zip ( 93%) 
+#36 155.0 Downloading libsecp256k1.zip ( 93%) Downloading libsecp256k1.zip ( 93%) 
+#36 155.0 Downloading libsecp256k1.zip ( 93%) Downloading libsecp256k1.zip ( 93%) 
+#36 155.0 Downloading libsecp256k1.zip ( 93%) Downloading libsecp256k1.zip ( 93%) 
+#36 155.0 Downloading libsecp256k1.zip ( 93%) Downloading libsecp256k1.zip ( 93%) 
+#36 155.0 Downloading libsecp256k1.zip ( 93%) Downloading libsecp256k1.zip ( 93%) 
+#36 155.0 Downloading libsecp256k1.zip ( 93%) Downloading libsecp256k1.zip ( 93%) 
+#36 155.0 Downloading libsecp256k1.zip ( 93%) Downloading libsecp256k1.zip ( 93%) 
+#36 155.0 Downloading libsecp256k1.zip ( 93%) Downloading libsecp256k1.zip ( 93%) 
+#36 155.0 Downloading libsecp256k1.zip ( 93%) Downloading libsecp256k1.zip ( 94%) 
+#36 155.0 Downloading libsecp256k1.zip ( 94%) Downloading libsecp256k1.zip ( 94%) 
+#36 155.0 Downloading libsecp256k1.zip ( 94%) Downloading libsecp256k1.zip ( 94%) 
+#36 155.0 Downloading libsecp256k1.zip ( 94%) Downloading libsecp256k1.zip ( 94%) 
+#36 155.0 Downloading libsecp256k1.zip ( 94%) Downloading libsecp256k1.zip ( 94%) 
+#36 155.0 Downloading libsecp256k1.zip ( 94%) Downloading libsecp256k1.zip ( 94%) 
+#36 155.0 Downloading libsecp256k1.zip ( 94%) Downloading libsecp256k1.zip ( 94%) 
+#36 155.0 Downloading libsecp256k1.zip ( 94%) Downloading libsecp256k1.zip ( 94%) 
+#36 155.0 Downloading libsecp256k1.zip ( 94%) Downloading libsecp256k1.zip ( 94%) 
+#36 155.0 Downloading libsecp256k1.zip ( 94%) Downloading libsecp256k1.zip ( 95%) 
+#36 155.0 Downloading libsecp256k1.zip ( 95%) Downloading libsecp256k1.zip ( 95%) 
+#36 155.0 Downloading libsecp256k1.zip ( 95%) Downloading libsecp256k1.zip ( 95%) 
+#36 155.0 Downloading libsecp256k1.zip ( 95%) Downloading libsecp256k1.zip ( 95%) 
+#36 155.0 Downloading libsecp256k1.zip ( 95%) Downloading libsecp256k1.zip ( 95%) 
+#36 155.0 Downloading libsecp256k1.zip ( 95%) Downloading libsecp256k1.zip ( 95%) 
+#36 155.0 Downloading libsecp256k1.zip ( 95%) Downloading libsecp256k1.zip ( 95%) 
+#36 155.0 Downloading libsecp256k1.zip ( 95%) Downloading libsecp256k1.zip ( 95%) 
+#36 155.0 Downloading libsecp256k1.zip ( 95%) Downloading libsecp256k1.zip ( 95%) 
+#36 155.0 Downloading libsecp256k1.zip ( 95%) Downloading libsecp256k1.zip ( 96%) 
+#36 155.0 Downloading libsecp256k1.zip ( 96%) Downloading libsecp256k1.zip ( 96%) 
+#36 155.0 Downloading libsecp256k1.zip ( 96%) Downloading libsecp256k1.zip ( 96%) 
+#36 155.0 Downloading libsecp256k1.zip ( 96%) Downloading libsecp256k1.zip ( 96%) 
+#36 155.0 Downloading libsecp256k1.zip ( 96%) Downloading libsecp256k1.zip ( 96%) 
+#36 155.0 Downloading libsecp256k1.zip ( 96%) Downloading libsecp256k1.zip ( 96%) 
+#36 155.0 Downloading libsecp256k1.zip ( 96%) Downloading libsecp256k1.zip ( 96%) 
+#36 155.0 Downloading libsecp256k1.zip ( 96%) Downloading libsecp256k1.zip ( 96%) 
+#36 155.0 Downloading libsecp256k1.zip ( 96%) Downloading libsecp256k1.zip ( 96%) 
+#36 155.0 Downloading libsecp256k1.zip ( 96%) Downloading libsecp256k1.zip ( 96%) 
+#36 155.0 Downloading libsecp256k1.zip ( 96%) Downloading libsecp256k1.zip ( 97%) 
+#36 155.0 Downloading libsecp256k1.zip ( 97%) Downloading libsecp256k1.zip ( 97%) 
+#36 155.0 Downloading libsecp256k1.zip ( 97%) Downloading libsecp256k1.zip ( 97%) 
+#36 155.0 Downloading libsecp256k1.zip ( 97%) Downloading libsecp256k1.zip ( 97%) 
+#36 155.0 Downloading libsecp256k1.zip ( 97%) Downloading libsecp256k1.zip ( 97%) 
+#36 155.0 Downloading libsecp256k1.zip ( 97%) Downloading libsecp256k1.zip ( 97%) 
+#36 155.0 Downloading libsecp256k1.zip ( 97%) Downloading libsecp256k1.zip ( 97%) 
+#36 155.0 Downloading libsecp256k1.zip ( 97%) Downloading libsecp256k1.zip ( 97%) 
+#36 155.0 Downloading libsecp256k1.zip ( 97%) Downloading libsecp256k1.zip ( 97%) 
+#36 155.0 Downloading libsecp256k1.zip ( 97%) Downloading libsecp256k1.zip ( 98%) 
+#36 155.0 Downloading libsecp256k1.zip ( 98%) Downloading libsecp256k1.zip ( 98%) 
+#36 155.0 Downloading libsecp256k1.zip ( 98%) Downloading libsecp256k1.zip ( 98%) 
+#36 155.0 Downloading libsecp256k1.zip ( 98%) Downloading libsecp256k1.zip ( 98%) 
+#36 155.0 Downloading libsecp256k1.zip ( 98%) Downloading libsecp256k1.zip ( 98%) 
+#36 155.0 Downloading libsecp256k1.zip ( 98%) Downloading libsecp256k1.zip ( 98%) 
+#36 155.0 Downloading libsecp256k1.zip ( 98%) Downloading libsecp256k1.zip ( 98%) 
+#36 155.0 Downloading libsecp256k1.zip ( 98%) Downloading libsecp256k1.zip ( 98%) 
+#36 155.0 Downloading libsecp256k1.zip ( 98%) Downloading libsecp256k1.zip ( 98%) 
+#36 155.0 Downloading libsecp256k1.zip ( 98%) Downloading libsecp256k1.zip ( 99%) 
+#36 155.0 Downloading libsecp256k1.zip ( 99%) Downloading libsecp256k1.zip ( 99%) 
+#36 155.0 Downloading libsecp256k1.zip ( 99%) Downloading libsecp256k1.zip ( 99%) 
+#36 155.0 Downloading libsecp256k1.zip ( 99%) Downloading libsecp256k1.zip ( 99%) 
+#36 155.0 Downloading libsecp256k1.zip ( 99%) Downloading libsecp256k1.zip ( 99%) 
+#36 155.0 Downloading libsecp256k1.zip ( 99%) Downloading libsecp256k1.zip ( 99%) 
+#36 155.0 Downloading libsecp256k1.zip ( 99%) Downloading libsecp256k1.zip ( 99%) 
+#36 155.0 Downloading libsecp256k1.zip ( 99%) Downloading libsecp256k1.zip ( 99%) 
+#36 155.0 Downloading libsecp256k1.zip ( 99%) Downloading libsecp256k1.zip ( 99%) 
+#36 155.0 Downloading libsecp256k1.zip ( 99%) Downloading libsecp256k1.zip ( 99%) 
+#36 155.0 Downloading libsecp256k1.zip ( 99%) Downloading libsecp256k1.zip (100%)
+#36 155.0 Running 'chmod' for libsecp256k1 0.2.0... OK
+#36 155.0 Running 'autogen' for libsecp256k1 0.2.0... ERROR. Please review logs to see
+#36 155.0 what happened:
+#36 155.0 ----- contents of
+#36 155.0 '/usr/local/bundle/gems/rbsecp256k1-6.0.0/ext/rbsecp256k1/tmp/x86_64-linux-gnu/ports/libsecp256k1/0.2.0/autogen.log'
+#36 155.0 -----
+#36 155.0 ./autogen.sh: 3: autoreconf: not found
+#36 155.0 ----- end of file -----
+#36 155.0 *** extconf.rb failed ***
+#36 155.0 Could not create Makefile due to some reason, probably lack of necessary
+#36 155.0 libraries and/or headers.  Check the mkmf.log file for more details.  You may
+#36 155.0 need configuration options.
+#36 155.0 
+#36 155.0 Provided configuration options:
+#36 155.0 	--with-opt-dir
+#36 155.0 	--without-opt-dir
+#36 155.0 	--with-opt-include
+#36 155.0 	--without-opt-include=${opt-dir}/include
+#36 155.0 	--with-opt-lib
+#36 155.0 	--without-opt-lib=${opt-dir}/lib
+#36 155.0 	--with-make-prog
+#36 155.0 	--without-make-prog
+#36 155.0 	--srcdir=.
+#36 155.0 	--curdir
+#36 155.0 	--ruby=/usr/local/bin/$(RUBY_BASE_NAME)
+#36 155.0 	--with-system-library
+#36 155.0 	--without-system-library
+#36 155.0 /usr/local/bundle/gems/mini_portile2-2.8.9/lib/mini_portile2/mini_portile.rb:628:in
+#36 155.0 `block in execute': Failed to complete autogen task (RuntimeError)
+#36 155.0 from
+#36 155.0 /usr/local/bundle/gems/mini_portile2-2.8.9/lib/mini_portile2/mini_portile.rb:594:in
+#36 155.0 `chdir'
+#36 155.0 from
+#36 155.0 /usr/local/bundle/gems/mini_portile2-2.8.9/lib/mini_portile2/mini_portile.rb:594:in
+#36 155.0 `execute'
+#36 155.0 	from extconf.rb:38:in `configure'
+#36 155.0 from
+#36 155.0 /usr/local/bundle/gems/mini_portile2-2.8.9/lib/mini_portile2/mini_portile.rb:237:in
+#36 155.0 `cook'
+#36 155.0 	from extconf.rb:79:in `<main>'
+#36 155.0 
+#36 155.0 extconf failed, exit code 1
+#36 155.0 
+#36 155.0 Gem files will remain installed in /usr/local/bundle/gems/rbsecp256k1-6.0.0 for
+#36 155.0 inspection.
+#36 155.0 Results logged to
+#36 155.0 /usr/local/bundle/extensions/x86_64-linux/3.2.0/rbsecp256k1-6.0.0/gem_make.out
+#36 155.0 
+#36 155.0   /usr/local/lib/ruby/3.2.0/rubygems/ext/builder.rb:119:in `run'
+#36 155.0   /usr/local/lib/ruby/3.2.0/rubygems/ext/ext_conf_builder.rb:28:in `build'
+#36 155.0   /usr/local/lib/ruby/3.2.0/rubygems/ext/builder.rb:187:in `build_extension'
+#36 155.0 /usr/local/lib/ruby/3.2.0/rubygems/ext/builder.rb:221:in `block in
+#36 155.0 build_extensions'
+#36 155.0   /usr/local/lib/ruby/3.2.0/rubygems/ext/builder.rb:218:in `each'
+#36 155.0   /usr/local/lib/ruby/3.2.0/rubygems/ext/builder.rb:218:in `build_extensions'
+#36 155.0   /usr/local/lib/ruby/3.2.0/rubygems/installer.rb:846:in `build_extensions'
+#36 155.0 /usr/local/lib/ruby/3.2.0/bundler/rubygems_gem_installer.rb:72:in
+#36 155.0 `build_extensions'
+#36 155.0   /usr/local/lib/ruby/3.2.0/bundler/rubygems_gem_installer.rb:28:in `install'
+#36 155.0   /usr/local/lib/ruby/3.2.0/bundler/source/rubygems.rb:202:in `install'
+#36 155.0   /usr/local/lib/ruby/3.2.0/bundler/installer/gem_installer.rb:54:in `install'
+#36 155.0 /usr/local/lib/ruby/3.2.0/bundler/installer/gem_installer.rb:16:in
+#36 155.0 `install_from_spec'
+#36 155.0 /usr/local/lib/ruby/3.2.0/bundler/installer/parallel_installer.rb:156:in
+#36 155.0 `do_install'
+#36 155.0 /usr/local/lib/ruby/3.2.0/bundler/installer/parallel_installer.rb:147:in
+#36 155.0 `block in worker_pool'
+#36 155.0   /usr/local/lib/ruby/3.2.0/bundler/worker.rb:62:in `apply_func'
+#36 155.0   /usr/local/lib/ruby/3.2.0/bundler/worker.rb:57:in `block in process_queue'
+#36 155.0   /usr/local/lib/ruby/3.2.0/bundler/worker.rb:54:in `loop'
+#36 155.0   /usr/local/lib/ruby/3.2.0/bundler/worker.rb:54:in `process_queue'
+#36 155.0 /usr/local/lib/ruby/3.2.0/bundler/worker.rb:90:in `block (2 levels) in
+#36 155.0 create_threads'
+#36 155.0 
+#36 155.0 An error occurred while installing rbsecp256k1 (6.0.0), and Bundler cannot
+#36 155.0 continue.
+#36 155.0 
+#36 155.0 In Gemfile:
+#36 155.0   eth was resolved to 0.5.17, which depends on
+#36 155.0     rbsecp256k1
+#36 ERROR: process "/bin/sh -c bundle install" did not complete successfully: exit code: 5
+------
+ > [api 5/6] RUN bundle install:
+155.0   /usr/local/lib/ruby/3.2.0/bundler/worker.rb:54:in `process_queue'
+155.0 /usr/local/lib/ruby/3.2.0/bundler/worker.rb:90:in `block (2 levels) in
+155.0 create_threads'
+155.0 
+155.0 An error occurred while installing rbsecp256k1 (6.0.0), and Bundler cannot
+155.0 continue.
+155.0 
+155.0 In Gemfile:
+155.0   eth was resolved to 0.5.17, which depends on
+155.0     rbsecp256k1
+------
